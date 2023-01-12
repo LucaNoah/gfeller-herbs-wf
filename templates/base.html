@@ -41,19 +41,81 @@
 
 <body>
     <header class="container-fluid fixed-top">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="{% url 'home' %}">Navbar</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <nav id="topnav" class="navbar row" style="background-color: aqua;">
+            <a class="navbar-brand" href="{% url 'home' %}">Gfeller Herbs</a>
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            <ul class="list-inline" style="margin-right: 5%;">
+                <li class="list-inline-item dropdown">
+                    <a href="#" data-toggle="dropdown">
+                        <p>Account</p>
+                    </a>
+                    <div class="dropdown-menu border-0">
+                        {% if request.user.is_authenticated %}
+                        {% if request.user.is_superuser %}
+                        <a href="#" class="dropdown-item">Product Management</a>
+                        {% endif %}
+                        <a href="#" class="dropdown-item">Your Profile</a>
+                        <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                        {% else %}
+                        <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                        <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                        {% endif %}
+                    </div>
+                </li>
+                <li class="list-inline-item">
+                    <a href="#">Bag</a>
+                </li>
+            </ul>
+        </nav>
+        <nav id="lowernav" class="navbar row navbar-expand-lg" style="background-color: lime;">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link active" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
-                    <a class="nav-link" href="#">Features</a>
-                    <a class="nav-link" href="#">Pricing</a>
-                    <a class="nav-link disabled">Disabled</a>
-                </div>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                            aria-expanded="false">
+                            All Products
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">All Products</a>
+                            <a class="dropdown-item" href="#">By Price</a>
+                            <a class="dropdown-item" href="#">By Category</a>
+                            <a class="dropdown-item" href="#">By Rating</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                            aria-expanded="false">
+                            Teas
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">All Tea</a>
+                            <a class="dropdown-item" href="#">Green Tea</a>
+                            <a class="dropdown-item" href="#">Black Tea</a>
+                            <a class="dropdown-item" href="#">Fruit Tea</a>
+                            <a class="dropdown-item" href="#">Herbal Tea</a>
+
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                            aria-expanded="false">
+                            Oils
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">All Oil</a>
+                            <a class="dropdown-item" href="#">X Oil</a>
+                            <a class="dropdown-item" href="#">Y Oil</a>
+                            <a class="dropdown-item" href="#">Z Oil</a>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </nav>
     </header>
@@ -66,6 +128,11 @@
     {% endblock %}
 
     <main>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
         {% block content %}
         {% endblock %}
     </main>
