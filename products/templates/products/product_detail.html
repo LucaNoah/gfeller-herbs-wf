@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12 col-sm-12 col-md-8 col-lg-6 col-xl-5 offset-0 offset-md-2 offset-lg-3 offset-xl-3">
+        <h1>{{ product.name }}</h1>
+        {% if product.image %}
+
+        {% else %}
+
+        {% endif %}
+        <p>{{ product.description }}</p>
+        <p>{{ product.price }}</p>
+    </div>
+</div>
+{% endblock %}
