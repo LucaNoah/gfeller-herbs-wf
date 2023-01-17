@@ -95,11 +95,13 @@
                             Teas
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">All Tea</a>
-                            <a class="dropdown-item" href="#">Green Tea</a>
-                            <a class="dropdown-item" href="#">Black Tea</a>
-                            <a class="dropdown-item" href="#">Fruit Tea</a>
-                            <a class="dropdown-item" href="#">Herbal Tea</a>
+                            <a class="dropdown-item"
+                                href="{% url 'products' %}?category=fruit_tea,herbal_tea,black_tea,green_tea">All
+                                Tea</a>
+                            <a class="dropdown-item" href="{% url 'products' %}?category=green_tea">Green Tea</a>
+                            <a class="dropdown-item" href="{% url 'products' %}?category=black_tea">Black Tea</a>
+                            <a class="dropdown-item" href="{% url 'products' %}?category=fruit_tea">Fruit Tea</a>
+                            <a class="dropdown-item" href="{% url 'products' %}?category=herbal_tea">Herbal Tea</a>
 
                         </div>
                     </li>
@@ -128,6 +130,8 @@
     {% endblock %}
 
     <main>
+        <br>
+        <br>
         <br>
         <br>
         <br>
