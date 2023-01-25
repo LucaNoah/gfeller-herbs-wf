@@ -2,6 +2,26 @@
 {% load static %}
 
 {% block content %}
+<div>
+    {% for c in current_categories %}
+    <a href="{% url 'products' %}?category={{ c.name }}">{{ c.display_name }}</a>
+    {% endfor %}
+</div>
+
+<div>
+    <select id="sort-select-box">
+        <option value="default" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by</option>
+        <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)
+        </option>
+        <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)
+        </option>
+        <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>Category (A-Z)
+        </option>
+        <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>Category (Z-A)
+        </option>
+    </select>
+</div>
+
 {% for product in products %}
 <div class="col-12 col-sm-12 col-md-8 col-lg-6 col-xl-5 offset-0 offset-md-2 offset-lg-3 offset-xl-3">
     <div class="card">
@@ -25,4 +45,30 @@
     </div>
 </div>
 {% endfor %}
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script type="text/javascript">
+    $('#sort-select-box').change(function () {
+        var selectBox = $(this);
+        var url = new URL(window.location);
+
+        var selectedValue = selectBox.val();
+        if (selectedValue != "default") {
+            var sort = selectedValue.split("_")[0];
+            var direction = selectedValue.split("_")[1];
+
+            url.searchParams.set("sortby", sort);
+            url.searchParams.set("direction", direction);
+
+            window.location.replace(url);
+        } else {
+            url.searchParams.delete("sortby");
+            url.searchParams.delete("direction");
+
+            window.location.replace(url);
+        }
+    })
+</script>
 {% endblock %}

@@ -11,6 +11,11 @@
 
         {% endif %}
         <p>{{ product.description }}</p>
+        <p class="small mt-1 mb-0">
+            <a href="{% url 'products' %}?category={{ product.category.name }}">
+                {{ product.category.display_name }}
+            </a>
+        </p>
         <p>{{ product.price }}</p>
     </div>
 </div>

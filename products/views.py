@@ -6,13 +6,26 @@ from .models import Product, Category
 # Create your views here.
 
 def list_products(request):
-    """ A view to list either all products, specifically categorized products, or products requested by search query. """
+    """ A view to list either all products, specifically sorted categorized products, or products requested by search query. """
 
     products = Product.objects.all()
     search_query = None
     categories_queried = None
+    sortkey = None
+    direction = None
 
     if request.GET:
+        if 'sortby' in request.GET:
+            sortby = request.GET['sortby']
+            sortkey = sortby
+            if sortby == 'category':
+                sortby = 'category__name'
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    sortby = f'-{sortby}'
+            products = products.order_by(sortby)
+
         if 'category' in request.GET:
             categories_queried = request.GET['category'].split(',')
             products = products.filter(category__name__in=categories_queried)
@@ -27,10 +40,13 @@ def list_products(request):
             queries = Q(name__icontains=search_query) | Q(description__icontains=search_query)
             products = products.filter(queries)
 
+    sorting_queried = f'{sortkey}_{direction}'
+
     context = {
         'products': products,
         'search_term': search_query,
         'current_categories': categories_queried,
+        'current_sorting': sorting_queried,
     }
 
     return render(request, 'products/products.html', context)

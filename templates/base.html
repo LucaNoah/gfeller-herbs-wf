@@ -84,8 +84,9 @@
                         </a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="{% url 'products' %}">All Products</a>
-                            <a class="dropdown-item" href="#">By Price</a>
-                            <a class="dropdown-item" href="#">By Category</a>
+                            <a class="dropdown-item" href="{% url 'products' %}?sortby=price&direction=asc">By Price</a>
+                            <a class="dropdown-item" href="{% url 'products' %}?sortby=category&direction=asc">By
+                                Category</a>
                             <a class="dropdown-item" href="#">By Rating</a>
                         </div>
                     </li>
@@ -96,7 +97,7 @@
                         </a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item"
-                                href="{% url 'products' %}?category=fruit_tea,herbal_tea,black_tea,green_tea">All
+                                href="{% url 'products' %}?category=black_tea,fruit_tea,green_tea,herbal_tea">All
                                 Tea</a>
                             <a class="dropdown-item" href="{% url 'products' %}?category=green_tea">Green Tea</a>
                             <a class="dropdown-item" href="{% url 'products' %}?category=black_tea">Black Tea</a>
@@ -140,6 +141,10 @@
         {% block content %}
         {% endblock %}
     </main>
+
+    {% if messages %}
+    <div class="message-container"></div>
+    {% endif %}
 
     {% block postloadjs %}
     {% endblock %}
