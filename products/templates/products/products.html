@@ -11,13 +11,17 @@
 <div>
     <select id="sort-select-box">
         <option value="default" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by</option>
-        <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)
+        <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to
+            high)
         </option>
-        <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)
+        <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high
+            to low)
         </option>
-        <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>Category (A-Z)
+        <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>Category
+            (A-Z)
         </option>
-        <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>Category (Z-A)
+        <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>
+            Category (Z-A)
         </option>
     </select>
 </div>
@@ -56,10 +60,10 @@
 
         var selectedValue = selectBox.val();
         if (selectedValue != "default") {
-            var sort = selectedValue.split("_")[0];
+            var sortby = selectedValue.split("_")[0];
             var direction = selectedValue.split("_")[1];
 
-            url.searchParams.set("sortby", sort);
+            url.searchParams.set("sortby", sortby);
             url.searchParams.set("direction", direction);
 
             window.location.replace(url);
