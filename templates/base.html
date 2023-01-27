@@ -112,10 +112,10 @@
                             Oils
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">All Oil</a>
-                            <a class="dropdown-item" href="#">X Oil</a>
-                            <a class="dropdown-item" href="#">Y Oil</a>
-                            <a class="dropdown-item" href="#">Z Oil</a>
+                            <a class="dropdown-item" href="{% url 'products' %}?category=oil_x,oil_y,oil_z">All Oil</a>
+                            <a class="dropdown-item" href="{% url 'products' %}?category=oil_x">X Oil</a>
+                            <a class="dropdown-item" href="{% url 'products' %}?category=oil_y">Y Oil</a>
+                            <a class="dropdown-item" href="{% url 'products' %}?category=oil_z">Z Oil</a>
                         </div>
                     </li>
                 </ul>
