@@ -2,5 +2,12 @@
 {% load static %}
 
 {% block content %}
-<h1 class="diplay-4 text-success">SHOPPING BAG</h1>
+<h1 class="text-success">SHOPPING BAG</h1>
+
+{% if bag_items %}
+<div class="table-responsive"></div>
+{% else %}
+<p>There is currently nothing in the shopping bag.</p>
+<a href="{% url 'products' %}">Back to shopping</a>
+{% endif %}
 {% endblock %}
