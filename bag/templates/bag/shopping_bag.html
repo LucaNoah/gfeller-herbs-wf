@@ -5,7 +5,32 @@
 <h1 class="text-success">SHOPPING BAG</h1>
 
 {% if bag_items %}
-<div class="table-responsive"></div>
+<div class="table-responsive">
+    <table>
+        {% for bag_item in bag_items %}
+        <tr>
+            <td>{{ bag_item.product.name }}</td>
+            <td>{{ bag_item.product.price }}$</td>
+            <td>{{ bag_item.quantity }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<div>
+    <p>Total: {{ total|floatformat:2 }}$</p>
+    <p>
+        Free delivery from {{ free_delivery_threshold|floatformat:2 }}$ <br>
+        {% if free_delivery_delta > 0 %}
+        If you still buy for {{ free_delivery_difference|floatformat:2 }}$ the delivery is free of charge!
+        {% endif %}
+        Delivery Charges: {{ delivery_cost|floatformat:2 }}$
+    </p>
+    <p>Grand Total: {{ grand_total|floatformat:2 }}$</p>
+    <p></p>
+</div>
+
+
 {% else %}
 <p>There is currently nothing in the shopping bag.</p>
 <a href="{% url 'products' %}">Back to shopping</a>
