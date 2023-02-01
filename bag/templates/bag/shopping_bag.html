@@ -3,7 +3,6 @@
 
 {% block content %}
 <h1 class="text-success">SHOPPING BAG</h1>
-
 {% if bag_items %}
 <p>
     You have {{ bag_count }} items in your bag
@@ -13,8 +12,13 @@
         {% for bag_item in bag_items %}
         <tr>
             <td>{{ bag_item.product.name }}</td>
+        </tr>
+        <tr>
             <td>{{ bag_item.product.price }}$</td>
-            <td>{{ bag_item.quantity }}</td>
+            <td>{{ bag_item.quantity }}x</td>
+            <td>
+                {% if bag_item.product.has_weight %}{{ bag_item.weight }}{% endif %}
+            </td>
         </tr>
         {% endfor %}
     </table>
