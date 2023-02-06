@@ -7,35 +7,32 @@
 <p>
     You have {{ bag_count }} items in your bag
 </p>
+<p>Enter 0 in the input field & press Edit to remove the item</p>
 <div class="table-responsive">
     <table>
         {% for bag_item in bag_items %}
         <tr>
-            <td><strong>{{ bag_item.product.name }}</strong></td>
+            <td><strong>{{ bag_item.product.name }}</strong>
+                {% if bag_item.product.has_weight %}{{ bag_item.weight }}{% endif %}
+            </td>
         </tr>
         <tr>
-            <td>{{ bag_item.product.price }}$</td>
             <td>
-                <form method="POST" action="">
+                {{ bag_item.product.price }}$ x
+                <form method="POST" action="{% url 'edit_item' bag_item.product_id %}">
                     {% csrf_token %}
-                    <input type="number" name="quantity" value="{{ bag_item.quantity }}" min="1" max="50"
-                        data-product_id="{{ bag_item.product_id.id }}" id="id_qty_{{ bag_item.product_id }}">
+                    <input type="number" name="quantity" value="{{ bag_item.quantity }}" min="0" max="50"
+                        data-product_id="{{ bag_item.product_id }}" id="id_qty_{{ bag_item.product_id }}">
                     {% if bag_item.product.has_weight %}
                     <input type="hidden" name="product_weight" value="{{ bag_item.weight }}">
                     {% endif %}
+                    <input type="submit" value="Edit">
                 </form>
-                <a class="update-link" href="">Update</a>
-                <a class="delete-link" href="" id="delete_{{ bag_item.product_id }}"
-                    data-weight="{{ bag_item.weight }}">Delete</a>
-            </td>
-            <td>
-                {% if bag_item.product.has_weight %}{{ bag_item.weight }}{% endif %}
-            </td>
         </tr>
         {% endfor %}
     </table>
 </div>
-
+<br>
 <div>
     <p>Total: {{ total|floatformat:2 }}$</p>
     <p>
@@ -61,7 +58,7 @@
     // Update quantity
     $('.update-link').click(function (e) {
         var bagForm = $(this).prev('.update-form');
-        form.submit();
+        bagForm.submit();
     })
 
     // Delete and reload
