@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load shopping_bag_tools %}
 
 {% block content %}
 <h1 class="text-success">SHOPPING BAG</h1>
@@ -18,7 +19,6 @@
         </tr>
         <tr>
             <td>
-                {{ bag_item.product.price }}$ x
                 <form method="POST" action="{% url 'edit_item' bag_item.product_id %}">
                     {% csrf_token %}
                     <input type="number" name="quantity" value="{{ bag_item.quantity }}" min="0" max="50"
@@ -28,6 +28,7 @@
                     {% endif %}
                     <input type="submit" value="Edit">
                 </form>
+            <td>{{ bag_item.product.price | calculate_subtotal:bag_item.quantity }}$</td>
         </tr>
         {% endfor %}
     </table>
