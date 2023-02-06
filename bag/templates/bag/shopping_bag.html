@@ -60,22 +60,5 @@
         var bagForm = $(this).prev('.update-form');
         bagForm.submit();
     })
-
-    // Delete and reload
-    $('.remove-item').click(function (e) {
-        var csrfToken = "{{ csrf_token }}";
-        var productId = $(this).attr('id').split('_')[1];
-        var weight = $(this).data('weight');
-        var url = `/bag/delete/${productId}`;
-        var data = {
-            'csrfmiddlewaretoken': csrfToken,
-            'weight': weight
-        };
-
-        $.post(url, data)
-            .done(function () {
-                location.reload();
-            });
-    })
 </script>
 {% endblock %}
