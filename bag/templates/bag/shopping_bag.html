@@ -28,6 +28,7 @@
                     {% endif %}
                     <input type="submit" value="Edit">
                 </form>
+
             <td>{{ bag_item.product.price | calculate_subtotal:bag_item.quantity }}$</td>
         </tr>
         {% endfor %}
@@ -50,16 +51,4 @@
 <p>There is currently nothing in the shopping bag.</p>
 <a href="{% url 'products' %}">Back to shopping</a>
 {% endif %}
-{% endblock %}
-
-{% block postloadjs %}
-{{ block.super }}
-
-<script type="text/javascript">
-    // Update quantity
-    $('.update-link').click(function (e) {
-        var bagForm = $(this).prev('.update-form');
-        bagForm.submit();
-    })
-</script>
 {% endblock %}
