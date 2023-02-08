@@ -28,7 +28,6 @@
                     {% endif %}
                     <input type="submit" value="Edit">
                 </form>
-
             <td>{{ bag_item.product.price | calculate_subtotal:bag_item.quantity }}$</td>
         </tr>
         {% endfor %}
