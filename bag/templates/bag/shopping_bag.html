@@ -44,7 +44,12 @@
         Delivery Charges: {{ delivery_cost|floatformat:2 }}$
     </p>
     <p>Grand Total: {{ grand_total|floatformat:2 }}$</p>
-    <p></p>
+    <a href="{% url 'products' %}">
+        <span>Keep Shopping</span>
+    </a>
+    <a href="{% url 'checkout' %}">
+        <span>Secure Checkout</span>
+    </a>
 </div>
 {% else %}
 <p>There is currently nothing in the shopping bag.</p>

@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<h2 class="text-success">CHECKOUT</h2>
+<form action="{% url 'checkout' %}" method="POST" id="checkout-form">
+    {% csrf_token %}
+    <fieldset>
+        <legend>Personal Details</legend>
+        Email Adrress: <br>
+        <p>{{ order_form.email_address }}</p>
+        Full Name: <br>
+        <p>{{ order_form.full_name }}</p>
+    </fieldset>
+    <fieldset>
+        <legend>Delivery Information</legend>
+        Address 1: <br>
+        <p>{{ order_form.delivery_address1 }}</p>
+        Address 2: <br>
+        <p>{{ order_form.delivery_address2 }}</p>
+        ZIP Code: <br>
+        <p>{{ order_form.zip_code }}</p>
+        Sate: <br>
+        <p>{{ order_form.state }}</p>
+        Country: <br>
+        <p>{{ order_form.country }}</p>
+        {% if user.is_authenticated %}
+        <label for="save-info-box">Save this information for future purchases?</label>
+        <input type="checkbox" name="save-info" id="save-info-box" checked>
+        {% else %}
+        <a href="{% url 'account_signup' %}">Create Account</a> or
+        <a href="{% url 'account_login' %}">Login</a>
+        {% endif %}
+    </fieldset>
+    <fieldset>
+        <legend>Payment</legend>
+        <div id="card-element"></div>
+        <div id="card_errors"></div>
+    </fieldset>
+    <div>
+        <p>
+            <span>
+                Your card will be charged with <strong>{{ grand_total|floatformat:2 }}$</strong>
+            </span>
+        </p>
+        <a href="{% url 'shopping_bag' %}">
+            <span>Adjust Shopping Bag</span>
+        </a>
+        <button id="submit-button">
+            <span>Complete Order</span>
+        </button>
+    </div>
+</form>
+{% endblock %}
