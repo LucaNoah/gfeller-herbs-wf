@@ -7,23 +7,26 @@
     {% csrf_token %}
     <fieldset>
         <legend>Personal Details</legend>
-        Email Adrress: <br>
+        Email Adrress * <br>
         <p>{{ order_form.email_address }}</p>
-        Full Name: <br>
-        <p>{{ order_form.full_name }}</p>
+        Phone Number <br>
+        <p>{{ order_form.phone_number }}</p>
     </fieldset>
     <fieldset>
         <legend>Delivery Information</legend>
-        Address: <br>
+        Full Name * <br>
+        <p>{{ order_form.full_name }}</p>
+        Address * <br>
         <p>{{ order_form.delivery_address }}</p>
-        Town or City: <br>
+        Town or City * <br>
         <p>{{ order_form.town_or_city }}</p>
-        ZIP Code: <br>
+        ZIP Code <br>
         <p>{{ order_form.zip_code }}</p>
         Sate: <br>
         <p>{{ order_form.state }}</p>
-        Country: <br>
+        Country * <br>
         <p>{{ order_form.country }}</p>
+        <p>Fields with an * are required!</p>
         {% if user.is_authenticated %}
         <label for="save-info-box">Save this information for future purchases?</label>
         <input type="checkbox" name="save-info" id="save-info-box" checked>

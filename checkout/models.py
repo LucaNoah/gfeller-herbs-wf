@@ -4,6 +4,8 @@ from django.db import models
 from django.db.models import Sum
 from django.conf import settings
 
+from django_countries.fields import CountryField
+
 from products.models import Product
 
 
@@ -14,12 +16,13 @@ class Order(models.Model):
     delivery_cost = models.DecimalField(max_digits=6, decimal_places=2, default=0, null=False, blank=False)
     grand_total = models.DecimalField(max_digits=8, decimal_places=2, default=0, null=False, blank=False)
     email_address = models.EmailField(max_length=75, null=False, blank=False)
+    phone_number = models.CharField(max_length=30, null=True, blank=True)
     full_name = models.CharField(max_length=50, null=False, blank=False)
     delivery_address = models.CharField(max_length=100, null=False, blank=False)
     town_or_city = models.CharField(max_length=80, null=False, blank=False, default='')
     zip_code = models.CharField(max_length=20, null=True, blank=True)
-    state = models.CharField(max_length=100, null=True, blank=False)
-    country = models.CharField(max_length=80, null=True, blank=False)
+    state = models.CharField(max_length=100, null=True, blank=True)
+    country = CountryField(blank_label='Select...', null=True, blank=False)
 
     def _generate_order_number(self):
         """
