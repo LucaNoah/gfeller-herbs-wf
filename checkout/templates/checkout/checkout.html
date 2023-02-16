@@ -14,10 +14,10 @@
     </fieldset>
     <fieldset>
         <legend>Delivery Information</legend>
-        Address 1: <br>
-        <p>{{ order_form.delivery_address1 }}</p>
-        Address 2: <br>
-        <p>{{ order_form.delivery_address2 }}</p>
+        Address: <br>
+        <p>{{ order_form.delivery_address }}</p>
+        Town or City: <br>
+        <p>{{ order_form.town_or_city }}</p>
         ZIP Code: <br>
         <p>{{ order_form.zip_code }}</p>
         Sate: <br>
@@ -28,6 +28,7 @@
         <label for="save-info-box">Save this information for future purchases?</label>
         <input type="checkbox" name="save-info" id="save-info-box" checked>
         {% else %}
+        <span>To save this information for future purchases: <br></span>
         <a href="{% url 'account_signup' %}">Create Account</a> or
         <a href="{% url 'account_login' %}">Login</a>
         {% endif %}
