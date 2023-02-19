@@ -4,25 +4,54 @@
 
 {% block content %}
 <h2 class="text-success">YOUR ACCOUNT</h2>
-<fieldset>
-    <legend>Your transacted orders:</legend>
-    {{ orders }}
-</fieldset>
+<h4>Your transacted orders:</h4>
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Order Number</th>
+                <th>Items</th>
+                <th>Date</th>
+                <th>Total Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+            <tr>
+                <td>{{ order.order_number|truncatechars:6 }}...</td>
+                <td>
+                    <ul>
+                        {% for item in order.orderlineitems.all %}
+                        <li>
+                            {{ item.product.name }}
+                            {% if item.product.has_weight %}
+                            Weight: {{ item.product.weight }}
+                            {% endif %}
+                            x {{ item.quantity }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </td>
+                <td>{{ order.date }}</td>
+                <td>{{ order.grand_total }}$</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<h4>Your standard delivery information:</h4>
 <form action="{% url 'account' %}" method="POST">
     {% csrf_token %}
-    <fieldset>
-        <legend>Your standard delivery information:</legend>
-        Address <br>
-        <p>{{ form.default_delivery_address}}</p>
-        Town or City <br>
-        <p>{{ form.default_town_or_city }}</p>
-        ZIP Code <br>
-        <p>{{ form.default_zip_code }}</p>
-        Sate <br>
-        <p>{{ form.default_state }}</p>
-        Country <br>
-        <p>{{ form.default_country }}</p>
-    </fieldset>
+    Address <br>
+    <p>{{ form.default_delivery_address}}</p>
+    Town or City <br>
+    <p>{{ form.default_town_or_city }}</p>
+    ZIP Code <br>
+    <p>{{ form.default_zip_code }}</p>
+    Sate <br>
+    <p>{{ form.default_state }}</p>
+    Country <br>
+    <p>{{ form.default_country }}</p>
     <button>Update Information</button>
 </form>
 {% endblock %}

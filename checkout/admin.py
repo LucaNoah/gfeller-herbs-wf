@@ -19,6 +19,7 @@ class OrderAdmin(admin.ModelAdmin):
 
     fields = (
         "order_number",
+        "user_account",
         "date",
         "order_total",
         "delivery_cost",
@@ -26,6 +27,7 @@ class OrderAdmin(admin.ModelAdmin):
         "email_address",
         "full_name",
         "delivery_address",
+        "town_or_city",
         "zip_code",
         "state",
         "country",
