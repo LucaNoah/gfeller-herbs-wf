@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% load static %}
-{% load bag_tools %}
 
 {% block content %}
 <h2 class="text-success">CHECKOUT</h2>
@@ -23,7 +22,7 @@
         <p>{{ order_form.town_or_city }}</p>
         ZIP Code <br>
         <p>{{ order_form.zip_code }}</p>
-        Sate: <br>
+        Sate <br>
         <p>{{ order_form.state }}</p>
         Country * <br>
         <p>{{ order_form.country }}</p>

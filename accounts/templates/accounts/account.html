@@ -4,5 +4,25 @@
 
 {% block content %}
 <h2 class="text-success">YOUR ACCOUNT</h2>
-{{ account.user.username }}
+<fieldset>
+    <legend>Your transacted orders:</legend>
+    {{ orders }}
+</fieldset>
+<form action="{% url 'account' %}" method="POST">
+    {% csrf_token %}
+    <fieldset>
+        <legend>Your standard delivery information:</legend>
+        Address <br>
+        <p>{{ form.default_delivery_address}}</p>
+        Town or City <br>
+        <p>{{ form.default_town_or_city }}</p>
+        ZIP Code <br>
+        <p>{{ form.default_zip_code }}</p>
+        Sate <br>
+        <p>{{ form.default_state }}</p>
+        Country <br>
+        <p>{{ form.default_country }}</p>
+    </fieldset>
+    <button>Update Information</button>
+</form>
 {% endblock %}
