@@ -17,18 +17,12 @@
     {% block core_css %}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <style>
-        .message-container {
-            z-index: 99999999999;
-            position: fixed;
-            top: 8rem;
-            right: 1rem;
-        }
-
-        .toast {
-            overflow: visible;
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Roboto+Flex:opsz,wght@8..144,300&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
 
     {% block extra_css %}
@@ -43,6 +37,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
         integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous">
     </script>
+    <script src="https://kit.fontawesome.com/8550ad9d95.js" crossorigin="anonymous"></script>
     {% endblock %}
 
     {% block extra_js %}
@@ -54,7 +49,9 @@
 <body>
     <header class="container-fluid fixed-top">
         <nav id="topnav" class="navbar row" style="background-color: aqua;">
-            <a class="navbar-brand" href="{% url 'home' %}">Gfeller Herbs</a>
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <h1>Gfeller Herbs</h1>
+            </a>
             <form method="GET" action="{% url 'products' %}" class="form-inline">
                 <input class="form-control mr-sm-2" type="text" name="query" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>

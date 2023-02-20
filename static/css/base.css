@@ -1,0 +1,22 @@
+body {
+    font-family: 'Roboto Flex', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: 'Oswald', sans-serif;
+}
+
+.message-container {
+    z-index: 99999999999;
+    position: fixed;
+    top: 8rem;
+    right: 1rem;
+}
+
+.toast {
+    overflow: visible;
+}
