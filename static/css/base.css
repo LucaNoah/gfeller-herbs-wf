@@ -20,3 +20,8 @@ h5 {
 .toast {
     overflow: visible;
 }
+
+img {
+    max-height: 200px;
+    height: auto;
+}
