@@ -16,8 +16,8 @@ def account(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Your account update was successful!')
-
-    form = UserAccountForm(instance=account)
+    else:
+        form = UserAccountForm(instance=account)
     orders = account.orders.all()
 
     template = 'accounts/account.html'

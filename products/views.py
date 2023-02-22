@@ -1,12 +1,16 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
+
 from .models import Product, Category
+from .forms import ProductForm
 
 # Create your views here.
 
 def list_products(request):
-    """ A view to list either all products, specifically sorted categorized products, or products requested by search query. """
+    """
+    A view to list either all products, specifically sorted categorized products, or products requested by search query.
+    """
 
     products = Product.objects.all()
     search_query = None
@@ -62,3 +66,24 @@ def product_detail(request, product_id):
     }
     
     return render(request, 'products/product_detail.html', context)
+
+
+def add_product(request):
+    """ Add product to the quote """
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Product added successfully!')
+            return redirect(reverse('add_product'))
+        else:
+            messages.error(request, 'Product could not be added, please check that the form is valid!')
+    else:     
+        form = ProductForm()
+
+    template = 'products/add_product.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
