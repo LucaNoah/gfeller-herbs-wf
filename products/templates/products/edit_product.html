@@ -3,11 +3,11 @@
 
 {% block content %}
 <h2 class="text-success">PRODUCT MANAGEMENT</h2>
-<h3>Add Product</h3>
-<form method="POST" action="{% url 'add_product' %}" enctype="multipart/form-data">
+<h3>Edit Product</h3>
+<form method="POST" action="{% url 'edit_product' product.id %}" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form }}
     <a href="{% url 'products' %}">Back to Products</a>
-    <button type="submit">Add Product</button>
+    <button type="submit">Edit Product</button>
 </form>
 {% endblock %}
