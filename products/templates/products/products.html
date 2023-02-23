@@ -45,6 +45,10 @@
             </h5>
         </a>
         <p class="card-text">{{ product.price }}$</p>
+        {% if request.user.is_superuser %}
+        <a href="{% url 'edit_product' product.id %}">Edit</a>
+        <a href="{% url 'delete_product' product.id %}">Delete</a>
+        {% endif %}
     </div>
 </div>
 <br>
