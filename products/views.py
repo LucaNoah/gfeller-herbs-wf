@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import user_passes_test
 from django.db.models import Q
 
 from .models import Product, Category
@@ -69,6 +70,7 @@ def product_detail(request, product_id):
     return render(request, 'products/product_detail.html', context)
 
 
+@user_passes_test(lambda u: u.is_superuser)
 def add_product(request):
     """ Add product to the quote """
     if request.method == 'POST':
@@ -90,6 +92,7 @@ def add_product(request):
     return render(request, template, context)
 
 
+@user_passes_test(lambda u: u.is_superuser)
 def edit_product(request, product_id):
     """ Edit a product that is already in the store """
     product = get_object_or_404(Product, pk=product_id)
@@ -113,6 +116,7 @@ def edit_product(request, product_id):
     return render(request, template, context)
 
 
+@user_passes_test(lambda u: u.is_superuser)
 def delete_product(request, product_id):
     """ Delete a product that is already in the store """
     product = get_object_or_404(Product, pk=product_id)

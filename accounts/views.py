@@ -1,10 +1,12 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth import login_required
 
 from .models import UserAccount
 from .forms import UserAccountForm
 
 
+@login_required
 def account(request):
     """
     Display user account
