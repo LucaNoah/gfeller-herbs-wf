@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
 {% block content %}
 <h2 class="text-success">CHECKOUT</h2>
 <form action="{% url 'checkout' %}" method="POST" id="checkout-form">
@@ -39,7 +43,7 @@
     <fieldset>
         <legend>Payment</legend>
         <div id="card-element"></div>
-        <div id="card_errors"></div>
+        <div id="card_errors" role="alert"></div>
     </fieldset>
     <div>
         <p>
@@ -55,4 +59,11 @@
         </button>
     </div>
 </form>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+{{ stripe_public_key|json_script:"id_stripe_public_key" }}
+{{ client_secret|json_script:"id_client_secret" }}
+<script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 {% endblock %}
