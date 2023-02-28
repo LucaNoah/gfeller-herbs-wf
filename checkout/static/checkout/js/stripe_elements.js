@@ -1,6 +1,6 @@
-var stripepPublicKey = $('#id_stripe_public_key').text().slice(1, -1);
+var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
 var clientSecret = $('#id_client_secret').text().slice(1, -1);
-var stripe = Stripe(stripepPublicKey);
+var stripe = Stripe(stripePublicKey);
 var elements = stripe.elements();
 var style = {
     base: {
@@ -39,7 +39,7 @@ card.addEventListener('change', function (event) {
 });
 
 // Handle form submit
-var form = document.getElementById('payment-form');
+var form = document.getElementById('checkout-form');
 
 form.addEventListener('submit', function (ev) {
     ev.preventDefault();
