@@ -6,7 +6,7 @@
 <h2 class="text-success">YOUR ACCOUNT</h2>
 <h4>Your transacted orders:</h4>
 <div class="table-responsive">
-    <table class="table">
+    <!-- <table class="table">
         <thead>
             <tr>
                 <th>Order Number</th>
@@ -37,7 +37,18 @@
             </tr>
             {% endfor %}
         </tbody>
-    </table>
+    </table> -->
+
+    <div>
+        {% for order in orders %}
+        <p>
+            {{ order.order_number|truncatechars:6 }}
+            <br>
+            {{ order.date }}
+        </p>
+        {% endfor %}
+    </div>
+
 </div>
 <h4>Your standard delivery information:</h4>
 <form action="{% url 'account' %}" method="POST">
