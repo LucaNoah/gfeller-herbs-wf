@@ -1,9 +1,9 @@
 .StripeElement,
-.stripe-style-input {
+.checkout-style-input {
     box-sizing: border-box;
     height: 40px;
     padding: 10px 12px;
-    border: 1px solid transparent;
+    border: 1px solid;
     border-radius: 4px;
     background-color: white;
     box-shadow: 0 1px 3px 0 #e6ebf1;
@@ -12,8 +12,8 @@
 }
 
 .StripeElement--focus,
-.stripe-style-input:focus,
-.stripe-style-input:active {
+.checkout-style-input:focus,
+.checkout-style-input:active {
     box-shadow: 0 1px 3px 0 #cfd7df;
 }
 
@@ -21,16 +21,12 @@
     background-color: #fefde5 !important;
 }
 
-.stripe-style-input::placeholder {
-    color: #aab7c4;
-}
-
 .fieldset-label {
     position: relative;
     right: .5rem;
 }
 
-#payment-form .form-control,
+#checkout-form .form-control,
 #card-element {
     color: #000;
     border: 1px solid #000;
