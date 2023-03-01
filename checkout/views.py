@@ -6,6 +6,8 @@ from .forms import OrderForm
 from .models import Order, OrderLineItem
 from products.models import Product
 from bag.contexts import bag_content
+from accounts.forms import UserAccountForm
+from accounts.models import UserAccount
 
 import stripe
 
@@ -76,7 +78,22 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-        order_form = OrderForm()
+        if request.user.is_authenticated:
+            try:
+                account = UserAccount.objects.get(user=request.user)
+                order_form = OrderForm(initial={
+                    'full_name': account.default_full_name,
+                    'delivery_address': account.default_delivery_address,
+                    'town_or_city': account.default_town_or_city,
+                    'town_or_city': account.default_town_or_city,
+                    'zip_code': account.default_zip_code,
+                    'state': account.default_state,
+                    'country': account.default_country,
+                })
+            except UserAccount.DoesNotExist:
+                order_form = OrderForm()
+        else:
+            order_form = OrderForm()
 
     if not stripe_public_key:
         messages.warning(request, 'Stripe public key is missing.')
@@ -93,8 +110,14 @@ def checkout(request):
 
 def checkout_success(request, order_number):
     """ Handle successfull checkouts """
-    save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
+
+    if request.user.is_authenticated:
+        # Attach user account to order
+        account = UserAccount.objects.get(user=request.user)
+        order.user_account = account
+        order.save()
+
     messages.success(request, f'Order successfull! \
         Your order number is {order_number}. \
         Confirmation email sent to {order.email_address}.')

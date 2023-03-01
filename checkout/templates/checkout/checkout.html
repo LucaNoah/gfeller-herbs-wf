@@ -31,14 +31,6 @@
         Country * <br>
         <p>{{ order_form.country }}</p>
         <p>Fields with an * are required!</p>
-        {% if user.is_authenticated %}
-        <label for="save-info-box">Save this information for future purchases?</label>
-        <input type="checkbox" name="save-info" id="save-info-box" checked>
-        {% else %}
-        <span>To save this information for future purchases, please log in: <br></span>
-        <a href="{% url 'account_signup' %}">Create Account</a> or
-        <a href="{% url 'account_login' %}">Login</a>
-        {% endif %}
     </fieldset>
     <fieldset>
         <legend>Payment</legend>

@@ -11,6 +11,7 @@ class UserAccount(models.Model):
     User account model to store delivery information and an order history
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    default_full_name = models.CharField(max_length=50, null=True, blank=True)
     default_delivery_address = models.CharField(max_length=100, null=True, blank=True)
     default_town_or_city = models.CharField(max_length=80, null=True, blank=True)
     default_zip_code = models.CharField(max_length=20, null=True, blank=True)
