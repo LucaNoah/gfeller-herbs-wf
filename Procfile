@@ -1,0 +1,1 @@
+web: gunicorn gfeller_herbs.wsgi:application
