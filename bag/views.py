@@ -7,7 +7,7 @@ from products.models import Product
 
 def view_bag(request):
     """ A view to return the shopping bag content """
-    
+
     return render(request, 'bag/shopping_bag.html')
 
 def add_item(request, product_id):
@@ -35,7 +35,7 @@ def add_item(request, product_id):
     else:
         if product_id in list(bag.keys()):
             bag[product_id] += quantity
-            messages.success(request, f'{product.name} was successfully updated to {bag[product_id]["items_by_weight"][weight]} in your shopping bag!')
+            messages.success(request, f'{product.name} was successfully updated to {bag[product_id]} in your shopping bag!')
         else:
             bag[product_id] = quantity
             messages.success(request, f'{product.name} was successfully added to your shopping bag!')

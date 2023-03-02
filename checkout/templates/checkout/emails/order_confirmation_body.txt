@@ -1,0 +1,22 @@
+Thanks for your order {{ order.full_name }}!
+
+This email confirms your order at Gfeller Herbs.
+
+Order Number: {{ order.order_number }}
+Order Date: {{ order.date }}
+
+Order Total: ${{ order.order_total }}
+Delivery: ${{ order.delivery_cost }}
+Grand Total: ${{ order.grand_total }}
+
+Delivery Address:
+{{ order.delivery_address }}
+{{ order.town_or_city }}
+{{ order.country }}
+(State and ZIP code are not shown in this email but were captured if specified)
+
+If you have any questions, please contact us! {{ contact_email }}
+
+Best wishes and much joy with your product,
+
+Gfeller Herbs

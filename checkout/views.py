@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.conf import settings
 
+from .emails import send_conformation_email
 from .forms import OrderForm
 from .models import Order, OrderLineItem
 from products.models import Product
@@ -15,7 +16,7 @@ import stripe
 def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
-
+   
     if request.method == 'POST':
         bag = request.session.get('bag', {})
         form_data = {
@@ -56,9 +57,7 @@ def checkout(request):
                         "Please contact us for assistance!")
                     )
                     order.delete()
-                    return redirect(reverse('view_bag'))
-
-            request.session['save_info'] = 'save-info-box' in request.POST
+                    return redirect(reverse('shopping_bag'))
             return redirect(reverse('checkout_success', args=[order.order_number]))
         else:
             messages.error(request, 'The form was not filled out correctly, \
@@ -118,6 +117,7 @@ def checkout_success(request, order_number):
         order.user_account = account
         order.save()
 
+    send_conformation_email(order)
     messages.success(request, f'Order successfull! \
         Your order number is {order_number}. \
         Confirmation email sent to {order.email_address}.')
