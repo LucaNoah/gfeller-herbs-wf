@@ -66,7 +66,7 @@ def edit_item(request, product_id):
     else:
         if quantity > 0:
             bag[product_id] = quantity
-            messages.success(request, f'{product.name} was successfully updated to {bag[product_id]["items_by_weight"][weight]} in your shopping bag!')
+            messages.success(request, f'{product.name} was successfully updated to {bag[product_id]} in your shopping bag!')
         else:
             bag.pop(product_id)
             messages.success(request, f'{product.name} was successfully removed from your shopping bag!')
