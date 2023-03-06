@@ -8,7 +8,7 @@ from django_countries.fields import CountryField
 
 class UserAccount(models.Model):
     """
-    User account model to store delivery information and an order history
+    User account model to store delivery information, order history & newsletter information
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     default_full_name = models.CharField(max_length=50, null=True, blank=True)
@@ -17,6 +17,8 @@ class UserAccount(models.Model):
     default_zip_code = models.CharField(max_length=20, null=True, blank=True)
     default_state = models.CharField(max_length=100, null=True, blank=True)
     default_country = CountryField(blank_label='Select...', null=True, blank=True)
+    has_newsletter_sub = models.BooleanField(default=False, null=True, blank=True)
+    newsletter_email_address = models.EmailField(max_length=75, null=True, blank=True)
 
     def __str__(self):
         return self.user.username

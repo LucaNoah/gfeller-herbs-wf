@@ -54,6 +54,9 @@
     <p>{{ form.default_state }}</p>
     Country <br>
     <p>{{ form.default_country }}</p>
+    <p>Newsletter? {{ form.has_newsletter_sub }}</p>
+    Email address to receive newsletter
+    <p>{{ form.newsletter_email_address }}</p>
     <button>Update Information</button>
 </form>
 {% endblock %}
