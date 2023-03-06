@@ -8,3 +8,11 @@ class UserAccountForm(forms.ModelForm):
         exclude = (
             'user',
         )
+
+    def __init__(self, *args, **kwargs):
+        """
+        Add classes to all fields
+        """
+        super().__init__(*args, **kwargs)
+        for field in self.fields:
+            self.fields[field].label = False

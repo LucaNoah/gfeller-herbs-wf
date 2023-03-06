@@ -43,20 +43,20 @@
 <form action="{% url 'account' %}" method="POST">
     {% csrf_token %}
     Full Name <br>
-    <p>{{ form.default_full_name }}</p>
+    <p>{{ form.default_full_name | as_crispy_field }}</p>
     Address <br>
-    <p>{{ form.default_delivery_address }}</p>
+    <p>{{ form.default_delivery_address | as_crispy_field }}</p>
     Town or City <br>
-    <p>{{ form.default_town_or_city }}</p>
+    <p>{{ form.default_town_or_city | as_crispy_field }}</p>
     ZIP Code <br>
-    <p>{{ form.default_zip_code }}</p>
+    <p>{{ form.default_zip_code | as_crispy_field }}</p>
     Sate <br>
-    <p>{{ form.default_state }}</p>
+    <p>{{ form.default_state | as_crispy_field }}</p>
     Country <br>
-    <p>{{ form.default_country }}</p>
-    <p>Newsletter? {{ form.has_newsletter_sub }}</p>
+    <p>{{ form.default_country | as_crispy_field }}</p>
+    <p>Newsletter? {{ form.has_newsletter_sub | as_crispy_field }}</p>
     Email address to receive newsletter
-    <p>{{ form.newsletter_email_address }}</p>
+    <p>{{ form.newsletter_email_address | as_crispy_field }}</p>
     <button>Update Information</button>
 </form>
 {% endblock %}

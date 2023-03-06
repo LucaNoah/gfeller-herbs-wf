@@ -23,3 +23,4 @@ class OrderForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         for field in self.fields:
             self.fields[field].widget.attrs['class'] = 'checkout-style-input'
+            self.fields[field].label = False

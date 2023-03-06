@@ -19,17 +19,17 @@
     <fieldset>
         <legend>Delivery Information</legend>
         Full Name * <br>
-        <p>{{ order_form.full_name }}</p>
+        <p>{{ order_form.full_name | as_crispy_field }}</p>
         Address * <br>
-        <p>{{ order_form.delivery_address }}</p>
+        <p>{{ order_form.delivery_address | as_crispy_field }}</p>
         Town or City * <br>
-        <p>{{ order_form.town_or_city }}</p>
+        <p>{{ order_form.town_or_city | as_crispy_field }}</p>
         ZIP Code <br>
-        <p>{{ order_form.zip_code }}</p>
+        <p>{{ order_form.zip_code | as_crispy_field }}</p>
         Sate <br>
-        <p>{{ order_form.state }}</p>
+        <p>{{ order_form.state | as_crispy_field }}</p>
         Country * <br>
-        <p>{{ order_form.country }}</p>
+        <p>{{ order_form.country | as_crispy_field }}</p>
         <p>Fields with an * are required!</p>
     </fieldset>
     <fieldset>
