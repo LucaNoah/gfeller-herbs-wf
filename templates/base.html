@@ -4,7 +4,6 @@
 <html lang="en">
 
 <head>
-
     {% block meta %}
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta charset="utf-8">
@@ -15,18 +14,12 @@
     {% endblock %}
 
     {% block core_css %}
-
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"> -->
-
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Roboto+Flex:opsz,wght@8..144,300&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Pacifico&family=Roboto:wght@300&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
@@ -35,22 +28,15 @@
     {% endblock %}
 
     {% block core_js %}
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"
-        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
         integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
         integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous">
     </script>
-
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
-        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous">
-    </script> -->
-
     <script src="https://kit.fontawesome.com/8550ad9d95.js" crossorigin="anonymous"></script>
     <script src="https://js.stripe.com/v3/"></script>
     {% endblock %}
@@ -62,143 +48,133 @@
 </head>
 
 <body>
-    <header class="container-fluid fixed-top">
-
-        <!-- <nav id="topnav" class="navbar navbar-expand-lg bg-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Navbar</a>
-                <button class="navbar-toggler btn btn-sm" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
+    <header class="fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-light px-0">
+            <div class="container-fluid" id="navbar-menu">
+                <a class="navbar-brand" href="{% url 'home' %}">Gfeller Herbs</a>
+                <button class="navbar-toggler mr-2" type="button" data-toggle="collapse"
+                    data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <form method="GET" action="{% url 'products' %}" class="d-flex d-lg-none mx-auto pt-2"
+                        id="search-form">
+                        <div id="search-input">
+                            <input class="form-control" type="text" name="query" placeholder="Search Store"
+                                aria-label="Search">
+                        </div>
+                        <button id="search-btn" class="btn btn-outline-dark" type="submit"><i
+                                class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>
+                    <ul class="navbar-nav mt-2 mt-lg-0">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                                 aria-expanded="false">
-                                Dropdown
+                                All Products
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="{% url 'products' %}">All Products</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li><a class="dropdown-item" href="{% url 'products' %}?sortby=price&direction=asc">By
+                                        Price</a></li>
+                                <li><a class="dropdown-item"
+                                        href="{% url 'products' %}?sortby=category&direction=asc">By
+                                        Category</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled">Disabled</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                                aria-expanded="false">
+                                Teas
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item"
+                                        href="{% url 'products' %}?category=black_tea,fruit_tea,green_tea,herbal_tea">All
+                                        Teas</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="{% url 'products' %}?category=green_tea">Green
+                                        Tea</a>
+                                </li>
+                                <li><a class="dropdown-item" href="{% url 'products' %}?category=black_tea">Black
+                                        Tea</a>
+                                </li>
+                                <li><a class="dropdown-item" href="{% url 'products' %}?category=fruit_tea">Fruit
+                                        Tea</a>
+                                </li>
+                                <li><a class="dropdown-item" href="{% url 'products' %}?category=herbal_tea">Herbal
+                                        Tea</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                                aria-expanded="false">
+                                Oils
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{% url 'products' %}?category=oil_x,oil_y,oil_z">All
+                                        Oils</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="{% url 'products' %}?category=oil_x">Oil X</a>
+                                </li>
+                                <li><a class="dropdown-item" href="{% url 'products' %}?category=oil_y">Oil Y</a>
+                                </li>
+                                <li><a class="dropdown-item" href="{% url 'products' %}?category=oil_z">Oil Z</a>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                                aria-expanded="false">
+                                <i class="fa-solid fa-user"></i> Your Account
+                            </a>
+                            <ul class="dropdown-menu">
+                                {% if request.user.is_authenticated %}
+                                {% if request.user.is_superuser %}
+                                <li><a class="dropdown-item" href="{% url 'add_product' %}">Product Mangement</a></li>
+                                {% endif %}
+                                <li><a class="dropdown-item" href="{% url 'account' %}">Your Account</a>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
+                                <li>
+                                    {% else %}
+                                <li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a>
+                                <li>
+                                <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a>
+                                    {% endif %}
+                                <li>
+                            </ul>
                         </li>
                     </ul>
-
+                    <form method="GET" action="{% url 'products' %}" class="mx-auto d-none d-lg-flex" id="search-form">
+                        <div id="search-input">
+                            <input class="form-control" type="text" name="query" placeholder="Search Store"
+                                aria-label="Search">
+                        </div>
+                        <button id="search-btn" class="btn btn-outline-dark" type="submit"><i
+                                class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>
                 </div>
-            </div>
-        </nav>
-        <nav id="lowernav" class="navbar navbar-expand-lg bg-dark">
-
-        </nav> -->
-
-
-        <nav id=" topnav" class="navbar row" style="background-color: aqua;">
-            <a class="navbar-brand" href="{% url 'home' %}">
-                <h1>Gfeller Herbs</h1>
-            </a>
-            <form method="GET" action="{% url 'products' %}" class="form-inline">
-                <input class="form-control mr-sm-2" type="text" name="query" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-            <ul class="list-inline" style="margin-right: 5%;">
-                <li class="list-inline-item dropdown">
-                    <a href="#" data-toggle="dropdown">
-                        <p>Account</p>
-                    </a>
-                    <div class="dropdown-menu border-0">
-                        {% if request.user.is_authenticated %}
-                        {% if request.user.is_superuser %}
-                        <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
-                        {% endif %}
-                        <a href="{% url 'account' %}" class="dropdown-item">Your Account</a>
-                        <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                        {% else %}
-                        <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                        <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                        {% endif %}
+                <li class="nav-item pt-2 pt-lg-0">
+                    <div id="bag-container">
+                        <a id="bag" href="{% url 'shopping_bag' %}">
+                            <i class="fa-solid fa-basket-shopping text-dark"></i>
+                            <span class="d-block text-dark pr-2" id="bag-count">{% if bag_items %}<strong> {{ total }}$
+                                </strong>{% endif %}</span>
+                        </a>
                     </div>
                 </li>
-                <li class="list-inline-item">
-                    <a href="{% url 'shopping_bag' %}">Bag {{ bag_count }}</a>
-                </li>
-            </ul>
-        </nav>
-        <nav id="lowernav" class="navbar row navbar-expand-lg" style="background-color: lime;">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                            aria-expanded="false">
-                            All Products
-                        </a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{% url 'products' %}">All Products</a>
-                            <a class="dropdown-item" href="{% url 'products' %}?sortby=price&direction=asc">By Price</a>
-                            <a class="dropdown-item" href="{% url 'products' %}?sortby=category&direction=asc">By
-                                Category</a>
-                            <a class="dropdown-item" href="#">By Rating</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                            aria-expanded="false">
-                            Teas
-                        </a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item"
-                                href="{% url 'products' %}?category=black_tea,fruit_tea,green_tea,herbal_tea">All
-                                Tea</a>
-                            <a class="dropdown-item" href="{% url 'products' %}?category=green_tea">Green Tea</a>
-                            <a class="dropdown-item" href="{% url 'products' %}?category=black_tea">Black Tea</a>
-                            <a class="dropdown-item" href="{% url 'products' %}?category=fruit_tea">Fruit Tea</a>
-                            <a class="dropdown-item" href="{% url 'products' %}?category=herbal_tea">Herbal Tea</a>
-
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                            aria-expanded="false">
-                            Oils
-                        </a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{% url 'products' %}?category=oil_x,oil_y,oil_z">All Oil</a>
-                            <a class="dropdown-item" href="{% url 'products' %}?category=oil_x">X Oil</a>
-                            <a class="dropdown-item" href="{% url 'products' %}?category=oil_y">Y Oil</a>
-                            <a class="dropdown-item" href="{% url 'products' %}?category=oil_z">Z Oil</a>
-                        </div>
-                    </li>
-                </ul>
             </div>
         </nav>
-
     </header>
-
-    {% block page_header %}
-    {% endblock %}
 
     {% if messages %}
     <div class="message-container">

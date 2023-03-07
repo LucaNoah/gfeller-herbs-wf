@@ -10,10 +10,54 @@ h5 {
     font-family: 'Oswald', sans-serif;
 }
 
+/* Navbar */
+.navbar {
+    height: 5rem;
+    background-color: #94ffc4;
+    padding-left: 0;
+}
+
+#navbar-menu {
+    background-color: #94ffc4;
+    padding-left: 1rem;
+}
+
+.navbar-brand {
+    font-family: 'Pacifico', cursive;
+    font-size: 150%;
+}
+
+.nav-item {
+    list-style-type: none;
+}
+
+#search-form {
+    padding-right: 27%;
+}
+
+#search-input {
+    width: 25rem;
+}
+
+#search-btn {
+    margin-left: 0.1rem;
+}
+
+#bag {
+    /* color: rgb(0, 0, 0); */
+    list-style-type: none;
+    text-decoration: none;
+}
+
+.fa-basket-shopping {
+    font-size: 180%;
+    margin-left: 0.5rem;
+}
+
 .message-container {
     z-index: 99999999999;
     position: fixed;
-    top: 8rem;
+    top: 6rem;
     right: 1rem;
 }
 
@@ -24,4 +68,20 @@ h5 {
 img {
     max-height: 200px;
     height: auto;
+}
+
+/* media queries */
+
+/* Navbar */
+
+@media screen and (max-width: 1200px) {
+    #search-input {
+        width: 15rem;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    #bag-container {
+        padding-right: 1rem;
+    }
 }
