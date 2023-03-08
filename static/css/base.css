@@ -18,6 +18,10 @@ h5 {
     height: 1.5rem;
 }
 
+#custom-container {
+    margin: 0 1rem;
+}
+
 /* Navbar */
 .navbar {
     height: 5rem;
@@ -110,10 +114,6 @@ h5 {
 }
 
 /* Products Detail */
-#detail-container {
-    margin: 0 1rem;
-}
-
 .detail-item {
     max-width: 5rem;
 }
