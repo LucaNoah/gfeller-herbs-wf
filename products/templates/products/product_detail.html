@@ -2,34 +2,38 @@
 {% load static %}
 
 {% block content %}
-<div class="row">
-    <div class="col-12 col-sm-12 col-md-8 col-lg-6 col-xl-5 offset-0 offset-md-2 offset-lg-3 offset-xl-3">
+<div id="detail-container" class="row">
+    <div class=" col-12 col-sm-11 offset-sm-1 col-md-6 offset-md-3 col-xl-4 offset-xl-4">
         <h2>{{ product.name }}</h2>
         {% if product.image %}
-        <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+        <img src="{{ product.image.url }}" id="detail-img" class="img-fluid" alt="{{ product.name }}">
         {% else %}
-        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+        <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
         {% endif %}
         <p>{{ product.description }}</p>
-        <p class="small mt-1 mb-0">
-            <a href="{% url 'products' %}?category={{ product.category.name }}">
-                {{ product.category.display_name }}
+        {% if product.category %}
+        <p class="small">
+            <a id="category-link" href="{% url 'products' %}?category={{ product.category.name }}">
+                {{ product.category.display_name }} <i class="fa-solid fa-tag"></i>
             </a>
         </p>
+        {% endif %}
         <p>{{ product.price }}$</p>
         <form action="{% url 'add_item' product.id %}" method="POST">
-            {% csrf_token %}
-            {% if product.has_weight %}
-            <select name="product_weight" id="id_product_weigth">
-                <option value="100g">100g</option>
-                <option value="250g">250g</option>
-                <option value="500g">500g</option>
-            </select>
-            {% endif %}
-            <input type="number" name="quantity" value="1" min="1" max="50" data-product_id="{{ product.id }}"
-                id="id_qty_{{ product.id }}">
-            <input type="submit" value="Add to Bag">
-            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+            <div class="form-group d-inline-flex">
+                {% csrf_token %}
+                {% if product.has_weight %}
+                <select class="detail-item selectpicker form-control mr-1" name="product_weight" id="id_product_weigth">
+                    <option value="100g">100g</option>
+                    <option value="250g">250g</option>
+                    <option value="500g">500g</option>
+                </select>
+                {% endif %}
+                <input class="detail-item form-control" type="number" name="quantity" value="1" min="1" max="50"
+                    data-product_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+            </div>
+            <p><input class="btn btn-outline-dark" type="submit" value="Add to Bag">
+                <input type="hidden" name="redirect_url" value="{{ request.path }}"></p>
         </form>
     </div>
 </div>

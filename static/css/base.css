@@ -109,10 +109,23 @@ h5 {
     color: #332D2D;
 }
 
+/* Products Detail */
+#detail-container {
+    margin: 0 1rem;
+}
+
+.detail-item {
+    max-width: 5rem;
+}
+
+#category-link {
+    text-decoration: none;
+    color: rgb(129, 128, 128);
+}
+
 /* media queries */
 
 /* Navbar */
-
 @media screen and (max-width: 1200px) {
     #search-input {
         width: 15rem;
