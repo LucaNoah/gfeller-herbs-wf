@@ -37,7 +37,39 @@
     </div>
 </div>
 
-<div class="row mx-1 mx-xl-4">
+<div class="row">
+    <div class="col mx-1 mx-sm-5">
+        <div class="col-12 col-xl-10 offset-xl-1">
+            {% for product in products %}
+            <div class="card mb-2 d-inline-flex">
+                {% if product.image %}
+                <a href="{% url 'product_detail' product.id %}">
+                    <img src="{{ product.image.url }}" class="card-img-top img-fluid" alt="{{ product.name }}">
+                </a>
+                {% else %}
+                <a href="{% url 'product_detail' product.id %}">
+                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                </a>
+                {% endif %}
+                <div class="card-body">
+                    <a href="{% url 'product_detail' product.id %}">
+                        <h5 class="card-title">
+                            {{ product.name }}
+                        </h5>
+                    </a>
+                    <p class="card-text">{{ product.price }}$</p>
+                    {% if request.user.is_superuser %}
+                    <a class="btn btn-warning" href="{% url 'edit_product' product.id %}">Edit</a>
+                    <a class="btn btn-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<!-- <div class="row d-lg-none mx-1 mx-xl-4">
     {% for product in products %}
     <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
         <div class="card mb-2">
@@ -65,7 +97,7 @@
         </div>
     </div>
     {% endfor %}
-</div>
+</div> -->
 {% endblock %}
 
 {% block postloadjs %}
