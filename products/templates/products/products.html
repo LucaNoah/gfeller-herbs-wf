@@ -1,89 +1,71 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'products/css/products.css' %}">
+{% endblock %}
+
 {% block content %}
-<div>
-    {% for c in current_categories %}
-    <a href="{% url 'products' %}?category={{ c.name }}">{{ c.display_name }}</a>
-    {% endfor %}
-</div>
-
-<div>
-    <select id="sort-select-box">
-        <option value="default" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by</option>
-        <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to
-            high)
-        </option>
-        <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high
-            to low)
-        </option>
-        <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>Category
-            (A-Z)
-        </option>
-        <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>
-            Category (Z-A)
-        </option>
-    </select>
-</div>
-
-{% for product in products %}
-
-<div class="card" style="width: 18rem;">
-    {% if product.image %}
-    <a href="{% url 'product_detail' product.id %}">
-        <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
-    </a>
-    {% else %}
-    <a href="{% url 'product_detail' product.id %}">
-        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-    </a>
-    {% endif %}
-    <div class="card-body">
-        <a href="{% url 'product_detail' product.id %}">
-            <h5 class="card-title">
-                {{ product.name }}
-            </h5>
-        </a>
-        <p class="card-text">{{ product.price }}$</p>
-        {% if request.user.is_superuser %}
-        <a href="{% url 'edit_product' product.id %}">Edit</a>
-        <a href="{% url 'delete_product' product.id %}">Delete</a>
-        {% endif %}
+<div class="row mb-2">
+    <div class="col-12 text-center">
+        {% for c in current_categories %}
+        <span id="categories">
+            <a class="mb-2 btn btn-outline-dark"
+                href="{% url 'products' %}?category={{ c.name }}">{{ c.display_name }}</a>
+        </span>
+        {% endfor %}
     </div>
 </div>
-<br>
-{% endfor %}
 
-<!-- {% for product in products %}
-<div class="col-12 col-sm-12 col-md-8 col-lg-6 col-xl-5 offset-0 offset-md-2 offset-lg-3 offset-xl-3">
-    <div class="card">
+<div class="row center">
+    <div class="mx-auto mb-4 col-4 col-md-3 col-lg-2">
+        <select class="selectpicker form-control" id="sort-select-box">
+            <option value="default" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by</option>
+            <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to
+                high)
+            </option>
+            <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high
+                to low)
+            </option>
+            <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>Category
+                (A-Z)
+            </option>
+            <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>
+                Category (Z-A)
+            </option>
+        </select>
+    </div>
+</div>
 
-        {% if product.image %}
-        <a href="{% url 'product_detail' product.id %}">
-            <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
-        </a>
-        {% else %}
-        <a href="">
-            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-        </a>
-        {% endif %}
-
-        <div class="card-body">
+<div class="row mx-1 mx-xl-4">
+    {% for product in products %}
+    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
+        <div class="card mb-2">
+            {% if product.image %}
             <a href="{% url 'product_detail' product.id %}">
-                <p>{{ product.name }}</p>
+                <img src="{{ product.image.url }}" class="card-img-top img-fluid" alt="{{ product.name }}">
             </a>
-        </div>
-        <div class="card-footer">
-            <div class="row">
-                <div class="col">
-                    <p>{{ product.price }}$</p>
-                </div>
+            {% else %}
+            <a href="{% url 'product_detail' product.id %}">
+                <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+            </a>
+            {% endif %}
+            <div class="card-body">
+                <a href="{% url 'product_detail' product.id %}">
+                    <h5 class="card-title">
+                        {{ product.name }}
+                    </h5>
+                </a>
+                <p class="card-text">{{ product.price }}$</p>
+                {% if request.user.is_superuser %}
+                <a class="btn btn-warning" href="{% url 'edit_product' product.id %}">Edit</a>
+                <a class="btn btn-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                {% endif %}
             </div>
         </div>
     </div>
+    {% endfor %}
 </div>
-{% endfor %} -->
-
 {% endblock %}
 
 {% block postloadjs %}

@@ -69,15 +69,44 @@ h5 {
     right: 1rem;
 }
 
-
-
 .toast {
     overflow: visible;
 }
 
-img {
+/* Index */
+#sub-header {
+    color: #332D2D;
+}
+
+/* Products */
+#categories a {
+    text-decoration: none;
+}
+
+#sort-select-box {
+    border-color: #332D2D;
+}
+
+.card img {
     max-height: 200px;
     height: auto;
+}
+
+.card {
+    width: 17rem;
+    border-color: #332D2D;
+}
+
+.card a {
+    text-decoration: none;
+}
+
+.card h5 {
+    color: black;
+}
+
+.card p {
+    color: #332D2D;
 }
 
 /* media queries */
@@ -93,11 +122,14 @@ img {
 @media screen and (max-width: 992px) {
     #bag-container {
         padding-right: 1rem;
-        position: ;
     }
 
     .dropdown-menu {
         max-width: 15rem;
+    }
+
+    #dropdown-menu-bottom {
+        margin-bottom: 1rem;
     }
 }
 

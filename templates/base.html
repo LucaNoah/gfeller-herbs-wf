@@ -143,10 +143,11 @@
                                 aria-expanded="false">
                                 <i class="fa-solid fa-user"></i> Your Account
                             </a>
-                            <ul class="dropdown-menu">
+                            <ul id="dropdown-menu-bottom" class="dropdown-menu">
                                 {% if request.user.is_authenticated %}
                                 {% if request.user.is_superuser %}
-                                <li><a class="dropdown-item" href="{% url 'add_product' %}">Product Mangement</a></li>
+                                <li><a class="dropdown-item" href="{% url 'add_product' %}">Product Mangement</a>
+                                </li>
                                 {% endif %}
                                 <li><a class="dropdown-item" href="{% url 'account' %}">Your Account</a>
                                 <li>
