@@ -10,6 +10,14 @@ h5 {
     font-family: 'Oswald', sans-serif;
 }
 
+#top-placeholder {
+    height: 7rem;
+}
+
+#bottom-placeholder {
+    height: 1.5rem;
+}
+
 /* Navbar */
 .navbar {
     height: 5rem;
@@ -44,7 +52,6 @@ h5 {
 }
 
 #bag {
-    /* color: rgb(0, 0, 0); */
     list-style-type: none;
     text-decoration: none;
 }
@@ -54,12 +61,15 @@ h5 {
     margin-left: 0.5rem;
 }
 
+/* Toasts */
 .message-container {
     z-index: 99999999999;
     position: fixed;
     top: 6rem;
     right: 1rem;
 }
+
+
 
 .toast {
     overflow: visible;
@@ -83,5 +93,16 @@ img {
 @media screen and (max-width: 992px) {
     #bag-container {
         padding-right: 1rem;
+        position: ;
+    }
+
+    .dropdown-menu {
+        max-width: 15rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    #top-placeholder {
+        height: 6rem;
     }
 }

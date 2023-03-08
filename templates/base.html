@@ -52,6 +52,15 @@
         <nav class="navbar navbar-expand-lg navbar-light px-0">
             <div class="container-fluid" id="navbar-menu">
                 <a class="navbar-brand" href="{% url 'home' %}">Gfeller Herbs</a>
+                <li class="nav-item d-block d-lg-none">
+                    <div id="bag-container">
+                        <a id="bag" href="{% url 'shopping_bag' %}">
+                            <i class="fa-solid fa-basket-shopping text-dark"></i>
+                            <span class="d-block text-dark pr-2" id="bag-count">{% if bag_items %}<strong> {{ total }}$
+                                </strong>{% endif %}</span>
+                        </a>
+                    </div>
+                </li>
                 <button class="navbar-toggler mr-2" type="button" data-toggle="collapse"
                     data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -163,7 +172,7 @@
                                 class="fa-solid fa-magnifying-glass"></i></button>
                     </form>
                 </div>
-                <li class="nav-item pt-2 pt-lg-0">
+                <li class="nav-item pt-2 pt-lg-0 d-none d-lg-flex">
                     <div id="bag-container">
                         <a id="bag" href="{% url 'shopping_bag' %}">
                             <i class="fa-solid fa-basket-shopping text-dark"></i>
@@ -194,17 +203,14 @@
     </div>
     {% endif %}
 
+    <div id="top-placeholder"></div>
+
     <main>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
         {% block content %}
         {% endblock %}
     </main>
+
+    <div id="bottom-placeholder"></div>
 
     {% block postloadjs %}
     <script type="text/javascript">
