@@ -6,10 +6,10 @@
 <div id="custom-container" class="row">
     <div class=" col-12 col-sm-11 offset-sm-1 col-md-6 offset-md-3 col-xl-4 offset-xl-4">
 
-        <h2>SHOPPING BAG <i class="fa-solid fa-basket-shopping text-dark"></i></h2>
+        <h2>SHOPPING CART <i class="fa-solid fa-basket-shopping text-dark"></i></h2>
         {% if bag_items %}
         <p class="mb-4">
-            You have {{ bag_count }} items in your bag
+            You have {{ bag_count }} items in your cart
         </p>
         <div class="table-responsive">
             <table class="table text-dark">
@@ -55,7 +55,7 @@
             <a class="btn btn-outline-dark mb-1" href="{% url 'products' %}">
                 <i class="fa-solid fa-arrow-left"></i> Keep Shopping
             </a>
-            <a class="btn btn-outline-dark mb-1" href="{% url 'checkout' %}">
+            <a class="btn btn-dark mb-1" href="{% url 'checkout' %}">
                 Secure Checkout <i class="fa-solid fa-lock"></i>
             </a>
         </div>

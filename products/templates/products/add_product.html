@@ -11,6 +11,7 @@
             {% if field.name != 'image' %}
             {{ field | as_crispy_field }}
             {% else %}
+            <span>Image</span>
             {{ field }}
             {% endif %}
             {% endfor %}
@@ -21,14 +22,4 @@
         </form>
     </div>
 </div>
-
-
-<!-- <h2 class="text-success">PRODUCT MANAGEMENT</h2>
-<h3>Add Product</h3>
-<form method="POST" action="{% url 'add_product' %}" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form }}
-    <a href="{% url 'products' %}">Back to Products</a>
-    <button type="submit">Add Product</button>
-</form> -->
 {% endblock %}

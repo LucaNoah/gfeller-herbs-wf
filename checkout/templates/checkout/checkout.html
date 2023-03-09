@@ -6,51 +6,55 @@
 {% endblock %}
 
 {% block content %}
-<h2 class="text-success">CHECKOUT</h2>
-<form action="{% url 'checkout' %}" method="POST" id="checkout-form">
-    {% csrf_token %}
-    <fieldset>
-        <legend>Personal Details</legend>
-        Email Adrress * <br>
-        <p>{{ order_form.email_address }}</p>
-        Phone Number <br>
-        <p>{{ order_form.phone_number }}</p>
-    </fieldset>
-    <fieldset>
-        <legend>Delivery Information</legend>
-        Full Name * <br>
-        <p>{{ order_form.full_name | as_crispy_field }}</p>
-        Address * <br>
-        <p>{{ order_form.delivery_address | as_crispy_field }}</p>
-        Town or City * <br>
-        <p>{{ order_form.town_or_city | as_crispy_field }}</p>
-        ZIP Code <br>
-        <p>{{ order_form.zip_code | as_crispy_field }}</p>
-        Sate <br>
-        <p>{{ order_form.state | as_crispy_field }}</p>
-        Country * <br>
-        <p>{{ order_form.country | as_crispy_field }}</p>
-        <p>Fields with an * are required!</p>
-    </fieldset>
-    <fieldset>
-        <legend>Payment</legend>
-        <div id="card-element"></div>
-        <div id="card-errors" role="alert"></div>
-    </fieldset>
-    <div>
-        <p>
-            <span>
-                Your card will be charged with <strong>{{ grand_total|floatformat:2 }}$</strong>
-            </span>
-        </p>
-        <a href="{% url 'shopping_bag' %}">
-            <span>Adjust Shopping Bag</span>
-        </a>
-        <button id="submit-button">
-            <span>Complete Order</span>
-        </button>
+<div id="custom-container" class="row">
+    <div class=" col-12 col-sm-11 offset-sm-1 col-md-6 offset-md-3 col-xl-4 offset-xl-4">
+        <h2>CHECKOUT</h2>
+        <form action="{% url 'checkout' %}" method="POST" id="checkout-form">
+            {% csrf_token %}
+            <fieldset>
+                <legend>Personal Details</legend>
+                Email Adrress * <br>
+                <p>{{ order_form.email_address | as_crispy_field }}</p>
+                Phone Number <br>
+                <p>{{ order_form.phone_number | as_crispy_field }}</p>
+            </fieldset>
+            <fieldset>
+                <legend>Delivery Information</legend>
+                Full Name * <br>
+                <p>{{ order_form.full_name | as_crispy_field }}</p>
+                Address * <br>
+                <p>{{ order_form.delivery_address | as_crispy_field }}</p>
+                Town or City * <br>
+                <p>{{ order_form.town_or_city | as_crispy_field }}</p>
+                ZIP Code <br>
+                <p>{{ order_form.zip_code | as_crispy_field }}</p>
+                Sate <br>
+                <p>{{ order_form.state | as_crispy_field }}</p>
+                Country * <br>
+                <p>{{ order_form.country | as_crispy_field }}</p>
+                <p>Fields with an * are required!</p>
+            </fieldset>
+            <fieldset>
+                <legend>Payment</legend>
+                <div id="card-element"></div>
+                <div id="card-errors" role="alert"></div>
+            </fieldset>
+            <div>
+                <p>
+                    <span>
+                        Your card will be charged with <strong>{{ grand_total|floatformat:2 }}$</strong>
+                    </span>
+                </p>
+                <a class="btn btn-outline-dark mb-1" href="{% url 'shopping_bag' %}">
+                    <span>Adjust Shopping Bag</span>
+                </a>
+                <button class="btn btn-dark mb-1" id="submit-button">
+                    <span>Complete Order <i class="fa-regular fa-credit-card"></i></span>
+                </button>
+            </div>
+        </form>
     </div>
-</form>
+</div>
 {% endblock %}
 
 {% block postloadjs %}

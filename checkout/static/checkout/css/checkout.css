@@ -1,4 +1,4 @@
-.StripeElement,
+/* .StripeElement,
 .checkout-style-input {
     box-sizing: border-box;
     height: 40px;
@@ -9,25 +9,15 @@
     box-shadow: 0 1px 3px 0 #e6ebf1;
     -webkit-transition: box-shadow 150ms ease;
     transition: box-shadow 150ms ease;
-}
+} */
 
-.StripeElement--focus,
-.checkout-style-input:focus,
-.checkout-style-input:active {
-    box-shadow: 0 1px 3px 0 #cfd7df;
-}
-
-.StripeElement--webkit-autofill {
-    background-color: #fefde5 !important;
-}
-
-.fieldset-label {
-    position: relative;
-    right: .5rem;
-}
-
-#checkout-form .form-control,
 #card-element {
-    color: #000;
-    border: 1px solid #000;
+    box-sizing: border-box;
+    height: 40px;
+    padding: 10px 12px;
+    border: 1px solid;
+    border-radius: 4px;
+    background-color: white;
+    color: #332D2D;
+    border: 1px solid #332D2D;
 }

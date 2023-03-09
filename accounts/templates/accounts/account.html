@@ -43,36 +43,36 @@
                 </tbody>
             </table>
         </div>
-        <h4>Your standard delivery information:</h4>
+        <h4>Your standard delivery information</h4>
         <form action="{% url 'account' %}" method="POST">
             {% csrf_token %}
             <span>
-                Full Name:
+                Full Name
                 {{ form.default_full_name | as_crispy_field }}
             </span>
             <span>
-                Address:
+                Address
                 {{ form.default_delivery_address | as_crispy_field }}
             </span>
             <span>
-                Town or City:
+                Town or City
                 {{ form.default_town_or_city | as_crispy_field }}
             </span>
             <span>
-                ZIP Code:
+                ZIP Code
                 {{ form.default_zip_code | as_crispy_field }}
             </span>
             <span>
-                Sate:
+                Sate
                 {{ form.default_state | as_crispy_field }}
             </span>
             <span>
-                Country:
+                Country
                 {{ form.default_country | as_crispy_field }}
             </span>
             <hr>
             <span>
-                Newsletter Subscription: <br>
+                Newsletter Subscription <br>
                 <small id="newsletter-info">With this option you can subscribe
                     to a
                     free monthly
@@ -82,9 +82,10 @@
                 {{ form.has_newsletter_sub | as_crispy_field }}
             </span>
             <span>
-                Email address to receive newsletter:
+                Email address to receive newsletter
                 {{ form.newsletter_email_address | as_crispy_field }}
             </span>
+            <hr>
             <button class="btn btn-outline-dark">Update Information</button>
         </form>
     </div>

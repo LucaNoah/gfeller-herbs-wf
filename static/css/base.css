@@ -1,3 +1,4 @@
+/* Main Setup */
 body {
     font-family: 'Roboto Flex', sans-serif;
     color: #332D2D;
@@ -37,7 +38,7 @@ h5 {
 
 .navbar-brand {
     font-family: 'Pacifico', cursive;
-    font-size: 150%;
+    font-size: 177%;
 }
 
 .nav-item {
@@ -58,7 +59,6 @@ h5 {
 
 .fa-basket-shopping {
     font-size: 180%;
-    margin-left: 0.5rem;
 }
 
 #bag {
