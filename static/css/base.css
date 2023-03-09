@@ -1,5 +1,6 @@
 body {
     font-family: 'Roboto Flex', sans-serif;
+    color: #332D2D;
 }
 
 h1,
@@ -55,14 +56,18 @@ h5 {
     margin-left: 0.1rem;
 }
 
+.fa-basket-shopping {
+    font-size: 180%;
+    margin-left: 0.5rem;
+}
+
 #bag {
     list-style-type: none;
     text-decoration: none;
 }
 
-.fa-basket-shopping {
-    font-size: 180%;
-    margin-left: 0.5rem;
+#nav-bag-count {
+    font-size: 1rem;
 }
 
 /* Toasts */
@@ -96,25 +101,22 @@ h5 {
     height: auto;
 }
 
-.card {
+.card-product {
     width: 17rem;
     border-color: #332D2D;
+    color: #332D2D;
 }
 
-.card a {
+.card-product a {
     text-decoration: none;
 }
 
-.card h5 {
-    color: black;
-}
-
-.card p {
+.card-product h3 {
     color: #332D2D;
 }
 
 /* Products Detail */
-.detail-item {
+.sm-select-item {
     max-width: 5rem;
 }
 
@@ -128,6 +130,15 @@ h5 {
     color: rgb(129, 128, 128);
 }
 
+/* Shopping Bag */
+.card-bag {
+    border-color: #332D2D;
+}
+
+#bag-item-link {
+    text-decoration: none;
+}
+
 /* media queries */
 
 /* Navbar */
@@ -138,10 +149,6 @@ h5 {
 }
 
 @media screen and (max-width: 992px) {
-    #bag-container {
-        padding-right: 1rem;
-    }
-
     .dropdown-menu {
         max-width: 15rem;
     }

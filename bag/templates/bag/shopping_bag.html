@@ -3,56 +3,67 @@
 {% load shopping_bag_tools %}
 
 {% block content %}
-<h2 class="text-success">SHOPPING BAG</h2>
-{% if bag_items %}
-<p>
-    You have {{ bag_count }} items in your bag
-</p>
-<p>Enter 0 in the input field & press Edit to remove the item</p>
-<div class="table-responsive">
-    <table>
-        {% for bag_item in bag_items %}
-        <tr>
-            <td><strong>{{ bag_item.product.name }}</strong>
-                {% if bag_item.product.has_weight %}{{ bag_item.weight }}{% endif %}
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <form method="POST" action="{% url 'edit_item' bag_item.product_id %}">
-                    {% csrf_token %}
-                    <input type="number" name="quantity" value="{{ bag_item.quantity }}" min="0" max="50"
-                        data-product_id="{{ bag_item.product_id }}" id="id_qty_{{ bag_item.product_id }}">
-                    {% if bag_item.product.has_weight %}
-                    <input type="hidden" name="product_weight" value="{{ bag_item.weight }}">
-                    {% endif %}
-                    <input type="submit" value="Edit">
-                </form>
-            <td>{{ bag_item.product.price | calculate_subtotal:bag_item.quantity }}$</td>
-        </tr>
-        {% endfor %}
-    </table>
-</div>
-<br>
-<div>
-    <p>Total: {{ total|floatformat:2 }}$</p>
-    <p>
-        Free delivery from {{ free_delivery_threshold|floatformat:2 }}$ <br>
-        {% if free_delivery_delta > 0 %}
-        If you still buy for {{ free_delivery_difference|floatformat:2 }}$ the delivery is free of charge!
+<div id="custom-container" class="row">
+    <div class=" col-12 col-sm-11 offset-sm-1 col-md-6 offset-md-3 col-xl-4 offset-xl-4">
+
+        <h2>SHOPPING BAG <i class="fa-solid fa-basket-shopping text-dark"></i></h2>
+        {% if bag_items %}
+        <p class="mb-4">
+            You have {{ bag_count }} items in your bag
+        </p>
+        <div class="table-responsive">
+            <table class="table text-dark">
+                {% for bag_item in bag_items %}
+                <tr>
+                    <td>
+                        <a class="text-dark" id="bag-item-link"
+                            href="{% url 'product_detail' bag_item.product_id %}">{{ bag_item.product.name }}</a>
+                        {% if bag_item.product.has_weight %}{{ bag_item.weight }}{% endif %}
+                    </td>
+                    <td>
+                        <form class="form-group d-sm-inline-flex" method="POST"
+                            action="{% url 'edit_item' bag_item.product_id %}">
+                            {% csrf_token %}
+                            <input class="form-control sm-select-item mr-1" type="number" name="quantity"
+                                value="{{ bag_item.quantity }}" min="0" max="50"
+                                data-product_id="{{ bag_item.product_id }}" id="id_qty_{{ bag_item.product_id }}">
+                            {% if bag_item.product.has_weight %}
+                            <input type="hidden" name="product_weight" value="{{ bag_item.weight }}">
+                            {% endif %}
+                            <input class="btn btn-outline-dark mt-1 mt-sm-0" type="submit" value="Edit">
+                        </form>
+                    </td>
+                    <td>{{ bag_item.product.price | calculate_subtotal:bag_item.quantity }}$</td>
+                </tr>
+                {% endfor %}
+            </table>
+            <p class="text-center"><small>Enter 0 in the input field & <br> press Edit to
+                    remove an item.</small></p>
+        </div>
+
+        <br>
+        <div>
+            <p>Total: {{ total|floatformat:2 }}$</p>
+            <p>
+                Free delivery from {{ free_delivery_threshold|floatformat:2 }}$ <br>
+                {% if free_delivery_delta > 0 %}
+                If you still buy for {{ free_delivery_difference|floatformat:2 }}$ the delivery is free of charge!
+                {% endif %}
+                Delivery Charges: {{ delivery_cost|floatformat:2 }}$
+            </p>
+            <p><strong>Grand Total: {{ grand_total|floatformat:2 }}$</strong></p>
+            <a class="btn btn-outline-dark mb-1" href="{% url 'products' %}">
+                <i class="fa-solid fa-arrow-left"></i> Keep Shopping
+            </a>
+            <a class="btn btn-outline-dark mb-1" href="{% url 'checkout' %}">
+                Secure Checkout <i class="fa-solid fa-lock"></i>
+            </a>
+        </div>
+        {% else %}
+        <p>There is currently nothing in the shopping bag.</p>
+        <a class="btn btn-outline-dark" href="{% url 'products' %}"><i class="fa-solid fa-arrow-left"></i> Back to
+            shopping</a>
         {% endif %}
-        Delivery Charges: {{ delivery_cost|floatformat:2 }}$
-    </p>
-    <p>Grand Total: {{ grand_total|floatformat:2 }}$</p>
-    <a href="{% url 'products' %}">
-        <span>Keep Shopping</span>
-    </a>
-    <a href="{% url 'checkout' %}">
-        <span>Secure Checkout</span>
-    </a>
+    </div>
 </div>
-{% else %}
-<p>There is currently nothing in the shopping bag.</p>
-<a href="{% url 'products' %}">Back to shopping</a>
-{% endif %}
 {% endblock %}
