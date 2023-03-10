@@ -1,7 +1,7 @@
 /* Main Setup */
 body {
     font-family: 'Roboto Flex', sans-serif;
-    color: #343A40
+    color: #343A40;
 }
 
 h1,
@@ -92,7 +92,7 @@ h2 {
 
 /* Index */
 #sub-header {
-    color: #332D2D;
+    color: #343A40;
 }
 
 /* Products */
@@ -101,7 +101,7 @@ h2 {
 }
 
 #sort-select-box {
-    border-color: #332D2D;
+    color: #343A40;
 }
 
 .card img {
@@ -111,8 +111,7 @@ h2 {
 
 .card-product {
     width: 17rem;
-    border-color: #332D2D;
-    color: #332D2D;
+    border: 0;
 }
 
 .card-product a {
@@ -120,7 +119,7 @@ h2 {
 }
 
 .card-product h3 {
-    color: #332D2D;
+    color: #343A40;
 }
 
 /* Products Detail */
@@ -140,7 +139,7 @@ h2 {
 
 /* Shopping Bag */
 .card-bag {
-    border-color: #332D2D;
+    border-color: #343A40;
 }
 
 #bag-header-icon {
@@ -159,8 +158,8 @@ h2 {
     border: 1px solid;
     border-radius: 4px;
     background-color: white;
-    color: #332D2D;
-    border: 1px solid #332D2D;
+    color: #343A40;
+    border: 1px solid #343A40;
 }
 
 .fa-truck-arrow-right {
