@@ -74,6 +74,10 @@ h2 {
     font-size: 1rem;
 }
 
+.social-icon {
+    font-size: 222%;
+}
+
 /* Toasts */
 .message-container {
     z-index: 99999999999;

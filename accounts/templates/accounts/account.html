@@ -72,19 +72,15 @@
             <h4>Newsletter</h4>
             <span>
                 Subscription <br>
-                <small id="newsletter-info">With this option you can subscribe
-                    to a
-                    free monthly
-                    newsletter service that includes
-                    product
-                    releases and preparation suggestions.</small>
+                <small id="newsletter-info">With this option you can subscribe to a
+                    free monthly newsletter service
+                    that includes product releases and preparation suggestions.</small>
                 {{ form.has_newsletter_sub | as_crispy_field }}
             </span>
             <span>
                 Email address to receive newsletter
                 {{ form.newsletter_email_address | as_crispy_field }}
             </span>
-            <hr>
             <button class="btn btn-dark">Update Information</button>
         </form>
     </div>
