@@ -127,16 +127,18 @@
                                 Oils
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="{% url 'products' %}?category=oil_x,oil_y,oil_z">All
+                                <li><a class="dropdown-item"
+                                        href="{% url 'products' %}?category=cooking_oil,body_oil">All
                                         Oils</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="{% url 'products' %}?category=oil_x">Oil X</a>
+                                <li><a class="dropdown-item" href="{% url 'products' %}?category=cooking_oil">Cooking
+                                        Oil</a>
                                 </li>
-                                <li><a class="dropdown-item" href="{% url 'products' %}?category=oil_y">Oil Y</a>
+                                <li><a class="dropdown-item" href="{% url 'products' %}?category=body_oil">Body
+                                        Oil</a>
                                 </li>
-                                <li><a class="dropdown-item" href="{% url 'products' %}?category=oil_z">Oil Z</a>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
