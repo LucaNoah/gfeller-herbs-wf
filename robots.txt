@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://gfeller-herbs.herokuapp.com/sitemap.xml
