@@ -4,7 +4,7 @@
 {% block content %}
 <div id="custom-container" class="row">
     <div class=" col-12 col-sm-11 offset-sm-1 col-md-6 offset-md-3 col-xl-4 offset-xl-4">
-        <h2>CHECKOUT</h2>
+        <h2>Checkout <i class="fa-solid fa-truck-arrow-right"></i></h2>
         <form action="{% url 'checkout' %}" method="POST" id="checkout-form">
             {% csrf_token %}
             <fieldset>

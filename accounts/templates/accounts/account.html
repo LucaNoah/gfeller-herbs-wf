@@ -7,8 +7,8 @@
 
 <div id="custom-container" class="row">
     <div class=" col-12 col-sm-11 offset-sm-1 col-md-6 offset-md-3 col-xl-4 offset-xl-4">
-        <h2 class="mb-3">Hello, {{ user.username }}!</h2>
-        <h4>Your transacted orders:</h4>
+        <h2>Hello, {{ user.username }}!</h2>
+        <h3>Your transacted orders:</h3>
         <div class="table-responsive">
             <table class="table text-dark">
                 <thead>
@@ -43,7 +43,8 @@
                 </tbody>
             </table>
         </div>
-        <h4>Your standard delivery information</h4>
+        <br>
+        <h3>Your standard delivery information</h3>
         <form action="{% url 'account' %}" method="POST">
             {% csrf_token %}
             <span>
@@ -70,9 +71,10 @@
                 Country
                 {{ form.default_country | as_crispy_field }}
             </span>
-            <hr>
+            <br>
+            <h3>Newsletter</h3>
             <span>
-                Newsletter Subscription <br>
+                Subscription <br>
                 <small id="newsletter-info">With this option you can subscribe
                     to a
                     free monthly
@@ -86,7 +88,7 @@
                 {{ form.newsletter_email_address | as_crispy_field }}
             </span>
             <hr>
-            <button class="btn btn-outline-dark">Update Information</button>
+            <button class="btn btn-dark">Update Information</button>
         </form>
     </div>
 </div>

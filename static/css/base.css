@@ -1,7 +1,7 @@
 /* Main Setup */
 body {
     font-family: 'Roboto Flex', sans-serif;
-    color: #332D2D;
+    color: #343A40
 }
 
 h1,
@@ -10,6 +10,10 @@ h3,
 h4,
 h5 {
     font-family: 'Oswald', sans-serif;
+}
+
+h2 {
+    margin-bottom: 1rem;
 }
 
 #top-placeholder {
@@ -135,6 +139,10 @@ h5 {
     border-color: #332D2D;
 }
 
+#bag-header-icon {
+    font-size: 120%;
+}
+
 #bag-item-link {
     text-decoration: none;
 }
@@ -149,6 +157,10 @@ h5 {
     background-color: white;
     color: #332D2D;
     border: 1px solid #332D2D;
+}
+
+.fa-truck-arrow-right {
+    font-size: 120%;
 }
 
 /* media queries */
