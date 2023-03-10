@@ -1,20 +1,16 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'index/css/index.css' %}">
-{% endblock %}
-
 {% block content %}
 <div class="row">
     <div class="col-md-8 col-lg-6 offset-0 offset-md-2 offset-lg-3 px-5">
         <h1>
             Pamper your body with natural products of the highest quality, guaranteed untreated, from Gfeller Herbs.
         </h1>
-        <h5 id="sub-header">
+        <h4 id="sub-header">
             Discover our range of selected natural products for nutrition or body care. We place the highest value on
             100% naturalness and traceable origin.
-        </h5>
+        </h4>
         <div class="text-center mt-3">
             <a href="{% url 'products' %}">
                 <button type="button" class="btn btn-dark" id="index-btn">See More</button>

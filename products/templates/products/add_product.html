@@ -4,17 +4,19 @@
 {% block content %}
 <div id="custom-container" class="row">
     <div class=" col-12 col-sm-11 offset-sm-1 col-md-6 offset-md-3 col-xl-4 offset-xl-4">
-        <h2 class="mb-3">Add Product</h2>
+        <h2>Add Product</h2>
         <form method="POST" action="{% url 'add_product' %}" enctype="multipart/form-data">
             {% csrf_token %}
             {% for field in form %}
             {% if field.name != 'image' %}
             {{ field | as_crispy_field }}
             {% else %}
-            <span>Image</span>
-            {{ field }}
-            {% endif %}
-            {% endfor %}
+            <p>
+                Image
+                {{ field }}
+                {% endif %}
+                {% endfor %}
+            </p>
             <div>
                 <a href="{% url 'products' %}" class="btn btn-outline-dark mt-2">Back to Products</a>
                 <button class="btn btn-warning mt-2" type="submit">Create & Add</button>

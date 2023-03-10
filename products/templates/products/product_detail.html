@@ -32,13 +32,13 @@
                 <input class="sm-select-item form-control" type="number" name="quantity" value="1" min="1" max="50"
                     data-product_id="{{ product.id }}" id="id_qty_{{ product.id }}">
             </div>
-            <p>
+            <div>
                 <a class="btn btn-outline-dark mb-1" href="{% url 'products' %}">
                     <i class="fa-solid fa-arrow-left"></i> Keep Shopping
                 </a>
                 <input class="btn btn-dark mb-1" type="submit" value="Add to Bag">
                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
-            </p>
+            </div>
         </form>
         {% if request.user.is_superuser %}
         <a class="btn btn-warning" href="{% url 'edit_product' product.id %}">Edit</a>

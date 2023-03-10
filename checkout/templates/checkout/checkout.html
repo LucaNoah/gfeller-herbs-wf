@@ -7,39 +7,33 @@
         <h2>Checkout <i class="fa-solid fa-truck-arrow-right"></i></h2>
         <form action="{% url 'checkout' %}" method="POST" id="checkout-form">
             {% csrf_token %}
-            <fieldset>
-                <legend>Personal Details</legend>
-                Email Adrress * <br>
-                <p>{{ order_form.email_address | as_crispy_field }}</p>
+            <h4>Personal Details</h4>
+            <span>
+                Email Adrress *
+                {{ order_form.email_address | as_crispy_field }}
                 Phone Number <br>
-                <p>{{ order_form.phone_number | as_crispy_field }}</p>
-            </fieldset>
-            <fieldset>
-                <legend>Delivery Information</legend>
-                Full Name * <br>
-                <p>{{ order_form.full_name | as_crispy_field }}</p>
-                Address * <br>
-                <p>{{ order_form.delivery_address | as_crispy_field }}</p>
-                Town or City * <br>
-                <p>{{ order_form.town_or_city | as_crispy_field }}</p>
-                ZIP Code <br>
-                <p>{{ order_form.zip_code | as_crispy_field }}</p>
-                Sate <br>
-                <p>{{ order_form.state | as_crispy_field }}</p>
-                Country * <br>
-                <p>{{ order_form.country | as_crispy_field }}</p>
-                <p>Fields with an * are required!</p>
-            </fieldset>
-            <fieldset>
-                <legend>Payment</legend>
-                <div id="card-element"></div>
-                <div id="card-errors" role="alert"></div>
-            </fieldset>
+                {{ order_form.phone_number | as_crispy_field }}
+                Delivery Information
+                Full Name *
+                {{ order_form.full_name | as_crispy_field }}
+                Address *
+                {{ order_form.delivery_address | as_crispy_field }}
+                Town or City *
+                {{ order_form.town_or_city | as_crispy_field }}
+                ZIP Code
+                {{ order_form.zip_code | as_crispy_field }}
+                Sate
+                {{ order_form.state | as_crispy_field }}
+                Country *
+                {{ order_form.country | as_crispy_field }}
+            </span>
+            <p>Fields with an * are required!</p>
+            <h4>Payment</h4>
+            <div id="card-element"></div>
+            <div id="card-errors" role="alert"></div>
             <div>
                 <p>
-                    <span>
-                        Your card will be charged with <strong>{{ grand_total|floatformat:2 }}$</strong>
-                    </span>
+                    Your card will be charged with <strong>{{ grand_total|floatformat:2 }}$</strong>
                 </p>
                 <a class="btn btn-outline-dark mb-1" href="{% url 'shopping_bag' %}">
                     <span>Adjust Shopping Bag</span>

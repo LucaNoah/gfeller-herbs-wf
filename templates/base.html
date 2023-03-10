@@ -1,6 +1,6 @@
 {% load static %}
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -145,7 +145,7 @@
                             <ul id="dropdown-menu-bottom" class="dropdown-menu">
                                 {% if request.user.is_authenticated %}
                                 {% if request.user.is_superuser %}
-                                <li><a class="dropdown-item" href="{% url 'add_product' %}">Product Mangement</a>
+                                <li><a class="dropdown-item" href="{% url 'add_product' %}">Add a Product</a>
                                 </li>
                                 {% endif %}
                                 <li><a class="dropdown-item" href="{% url 'account' %}">Your Account</a>
@@ -203,12 +203,10 @@
     {% endif %}
 
     <div id="top-placeholder"></div>
-
     <main>
         {% block content %}
         {% endblock %}
     </main>
-
     <div id="bottom-placeholder"></div>
 
     {% block postloadjs %}
