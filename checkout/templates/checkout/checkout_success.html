@@ -1,38 +1,46 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block extra_css %}
-<link rel="stylesheet" href="">
-{% endblock %}
-
 {% block content %}
-<h2 class="text-success">Your order was successful!</h2>
-<p>Thank you for your purchase, a confirmation email has been sent to {{ order.email_address }}.</p>
-<h3>Order Details:</h3>
-<div>
-    {% for item in order.orderlineitems.all %}
-    <p>
-        {{ item.product.name }} {% if item.product_weight %}{{ item.product.weight }}{% endif %} <br>
-        {{ item.quantity }} x {{ item.product.price }}$ <br>
-        {{ order.grand_total }}
-    </p>
-    {% endfor %}
-</div>
-<div>
-    <p>
-        {{ order.full_name }} <br>
-        {{ order.delivery_address }} <br>
-        {{ order.town_or_city }} <br>
-        {% if order.zip_code %}
-        {{ order.zip_code }} <br>
-        {% endif %}
-        {% if order.state %}
-        {{ order.state }} <br>
-        {% endif %}
-        {{ order.country }} <br>
-        {% if order.phone_number %}
-        {{ order.phone_number }} <br>
-        {% endif %}
-    </p>
+<div id="custom-container" class="row">
+    <div class=" col-12 col-sm-11 offset-sm-1 col-md-6 offset-md-3 col-xl-4 offset-xl-4">
+
+        <h2>Your order was successful!</h2>
+        <p>Thank you for your purchase, a confirmation email has been sent to {{ order.email_address }}.</p>
+        <h3>Order Details</h3>
+        <div class="table-responsive">
+            <table class="table text-dark">
+                {% for item in order.orderlineitems.all %}
+                <tr>
+                    <td>
+                        {{ item.product.name }} {% if item.product_weight %}{{ item.product_weight }}{% endif %}
+                    </td>
+                    <td>
+                        {{ item.quantity }} x {{ item.product.price }}$
+                    </td>
+                    <td></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div>
+            <h3>Delivered To</h3>
+            <p>
+                {{ order.full_name }} <br>
+                {{ order.delivery_address }} <br>
+                {{ order.town_or_city }} <br>
+                {% if order.zip_code %}
+                {{ order.zip_code }} <br>
+                {% endif %}
+                {% if order.state %}
+                {{ order.state }} <br>
+                {% endif %}
+                {{ order.country }} <br>
+                {% if order.phone_number %}
+                {{ order.phone_number }} <br>
+                {% endif %}
+            </p>
+        </div>
+    </div>
 </div>
 {% endblock %}

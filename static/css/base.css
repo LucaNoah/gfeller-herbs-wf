@@ -139,6 +139,18 @@ h5 {
     text-decoration: none;
 }
 
+/* Checkout */
+#card-element {
+    box-sizing: border-box;
+    height: 40px;
+    padding: 10px 12px;
+    border: 1px solid;
+    border-radius: 4px;
+    background-color: white;
+    color: #332D2D;
+    border: 1px solid #332D2D;
+}
+
 /* media queries */
 
 /* Navbar */
@@ -161,5 +173,9 @@ h5 {
 @media screen and (max-width: 576px) {
     #top-placeholder {
         height: 6rem;
+    }
+
+    .navbar-brand {
+        font-size: 150%;
     }
 }

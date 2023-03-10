@@ -29,7 +29,7 @@
                                 <li>
                                     {{ item.product.name }}
                                     {% if item.product.has_weight %}
-                                    Weight: {{ item.product.weight }}
+                                    {{ item.product_weight }}
                                     {% endif %}
                                     x {{ item.quantity }}
                                 </li>
