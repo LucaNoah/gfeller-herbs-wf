@@ -19,9 +19,18 @@
             </p>
             <div>
                 <a href="{% url 'products' %}" class="btn btn-outline-dark mt-2">Back to Products</a>
-                <button class="btn btn-warning mt-2" type="submit">Create & Add</button>
+                <button class="btn btn-warning mt-2 confirmation-add" type="submit">Create & Add</button>
             </div>
         </form>
     </div>
 </div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script type="text/javascript">
+    $('.confirmation-add').on('click', function () {
+        return confirm('Are you sure you want to add this product?');
+    });
+</script>
 {% endblock %}
