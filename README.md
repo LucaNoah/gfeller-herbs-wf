@@ -1,108 +1,153 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# GFELLER HERBS
+![Screenshot Responsiveness](/media/images_readme/screenshot_responsive.PNG)
 
-Welcome LucaNoah,
+Gfeller Herbs is an online store where natural products are sold.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+The purpose of the application is to offer customers the possibility to inform themselves about the offered products and to buy and order them. 
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+Customers can search for products or sort and categorize them using the fields in the navigation bar. If the customer wants to buy a product, a number of them can be placed in the shopping cart, then can be paid by credit card through a secure checkout procedure. The customer will be informed about orders placed by email and can view them on the website if a user account has been created before. If a user account is created, a standard delivery address can also be stored and a newsletter can be subscribed to.
 
-## Gitpod Reminders
+Store owners/employees receive a special user account that allows them to add, edit and delete products directly from the website. Categories must be added via the admin panel and re-linked in the navigation bar.
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+Click [here](https://gfeller-herbs.herokuapp.com/) to live site.
 
-`python3 -m http.server`
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
-------
-
-## Release History
-
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
-
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
-
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
-
-**July 2 2021:** Remove extensions that are not available in Open VSX.
-
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
-
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
-
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
+## User Stories
 ---
 
-Happy coding!
+GitHub Issues/Projects were used to document user stories. 
+The following labels were assigned for prioritization purposes: "Must Have", "Should Have", "Could Have" and "Won't Have".
+The following milestones were assignet to categorize: "User Accounts", "Administration & Management", "Purchase & Payment", "Search & Sort", "View & Navigation"
+
+### Fulfilled User Stories
+- As a Customer, I can register for a newsletter, so that I will be informed about new offers or sales.
+- As a Customer, I can have a user profile, so that I have an overview of my order history, delivery address, delivery confirmation & newsletter subscriptions.
+- As a Customer, I can select the quantity and size of the product, so that I can make an exact order.
+- As a Customer, I can sort the displayed products, so that I get the order I am most interested in.
+- As a Customer, I can change the number of each product directly in the shopping cart, so that adjustments can be made to the quantity to be purchased.
+- As a Customer, I can display search requests for products, so that I can find specific products.
+- As a Customer, I can register for an account, so that I can view my profile.
+- As a Customer, I can be sure that my payment information is protected and safe, so that I can enter the necessary information with confidence.
+- As a Customer, I can choose between different categories, so that I can view the related products.
+- As a Customer, I can recover my password, so that I can recover access to my account if I forget my password.
+- As a Customer, I can add products to the shopping bag, so that I have an overview of the products before checkout.
+- As a Customer, I can view a list of products, so that I can select one to view and purchase.
+- As a Customer, I can view the product details, so that I see what the product is exactly about.
+- As a Customer, I can login or logout, so that I can access my account.
+- As a Customer, I can have a simple, easy to see overview of the total costs, so that I know how much money I am about to spend.
+- As a Customer, I can receive a confirmation email after a purchase, so that I can be sure my order has been received by the supplier.
+- As a Customer, I can check the order before payment, so that I avoid unintentional purchases.
+- As a Customer, I can easily enter my payment information without any problems, so that I keep the momentum of wanting to buy until checkout.
+- As a Supplier, I can add a product, so that I can add new products to my store.
+- As a Supplier, I can edit a product, so that I can modify the product attributes.
+- As a Supplier, I can delete a product, so that I can delete products that are no longer offered.
+
+### User Stories for next release
+- As a Customer, I can leave reviews on products I bought, so that other customers can see my opinion about them.
+- As a Customer, I can if available for the product, choose between different weights, so that can order the desired weight of a product.
+
+## Agile Methodology
+---
+![Screenshot User Stories](/media/images_readme/screenshot_user_stories.PNG)
+
+MoSCoW priority setting was used to create an agile project via GitHub Issues & GitHub Projects. 
+
+Link to the project with live issues can be found [here](https://github.com/users/LucaNoah/projects/10).
+
+
+## Wireframes
+---
+![Image Wireframe](/media/images_readme/wireframe.jpg)
+
+The web application was designed on a laptop screen size. This wireframe was used.
+
+## Existing Features
+---
+### - Navbar
+- Logo
+
+The logo text "Gfeller Herbs" is clickable and leads to the home page, it is located on the left edge.
+- All Products
+
+The all products tab is located to the right of the logo and opens a list with the option to view all products or sort them. If you follow one of these options, you will be taken to the product catalog.
+- Categories
+
+To the right of the all products tab are the tabs with the available super categories. With a mouse click, these show their contained categories as well as an option to all products of the contained categories and forward to the corresponding product catalog.
+- Your Account
+
+To the right of the category tabs is the "Your Account" tab. This opens a list with possible options to logout, sign-in/signup, view the user's profile and if the logged-in user is a superuser (store owner/employee) the option to add a product.
+- Search Bar
+
+The search bar sits in the middle between the Your Account tab and the shopping cart. This input field allows the user to search for and display entries in products and categories.
+- Shopping Bag
+
+The icon for the shopping cart is located at the left edge of the navigation bar. the small number to the right of it indicates how many products are currently in the shopping cart. If there is only one product in the shopping cart, the total value of the shopping cart is displayed below it.
+
+### - Home Page
+The home page of the application informs the user about the benefits and the target audience of the website. 
+The customer is invited to open the product catalog via the "discover products" button or to view the operator's social media pages by clicking the icons.
+
+### - Register
+Via the navbar the user has the possibility to get to a page to register. 
+Email address, username and password are required.
+
+### - Log In
+If the user has already registered, he can navigate via the navbar to the login page to log in with username/email & password.
+
+### - Log Out
+If the user is logged in, he can navigate to the logout page via the navbar.
+
+### Add, Edit & Delete Products
+If the user is logged in as superuser (store owner/employee), he has the possibility to delete or edit the product in the views of the product catalog and the product details. To add a new product, the user can navigate to the corresponding entry under the tab Your Account > Add Product. Creating and editing is done via form input.
+
+### - Products Catalog
+Through the button on the homepage or the navigation tab and the search input, it is possible for the user to view the product catalog. The selected products are displayed with their picture, name and price. By clicking on the picture or the name, the user can view the details of the product. Above the products, there is a selection box for sorting. If one of the super categories is displayed, the user can use the buttons below the sorting option to display the various categories.
+
+### - Product Detail
+If the user is redirected to the detailed view of a product by clicking on the image or name of a product in the product catalog, he will see the name, a large image, the description, the respective category, the price, an input field for the quantity and two buttons, one to add the respective quantity of the product to the shopping cart and one to return to the product catalog. 
+
+### - Shopping Bag
+In the shopping cart is displayed how many products are there at the time. The products in the shopping cart are displayed in tabular form. The name, quantity and price are displayed. The quantity can be changed via an input field. to remove a product, the user must enter 0 and press edit. Under the listed products, the total of the product price as well as the delivery costs and the total amount can be viewed. By 2 buttons below the user can continue to the checkout or back to the product catalog.
+
+### - Checkout
+During checkout, the user must provide personal details, delivery information and credit card details. Required fields are marked with *. Under the credit card information, the total costs with which the card is charged are displayed. Clicking on complete order initiates the payment process.
+
+### - Checkout Success
+Once the order and payment have been successfully processed, an order success page will be displayed showing the email address to which the order confirmation has been sent, a list of the products ordered and the delivery address.
+
+### - Your Account
+If the user is logged in, he can go to his personal user profile via the navigation bar. There is a list of all orders placed, an entry for the default delivery address which is automatically inserted during checkout and a selection option to subscribe to the newsletter of the store.
+
+### - Newsletter
+The newsletter of the site can be subscribed by selecting the appropriate selection box in the Your Account area. The user only has to provide his email address and update his information. There are no real newsletter mails sent at the moment!
+
+### - Messages
+For many recurring events, the user is informed about successful or failed actions via a message box that appears at the top right and only disappears when it is closed. Such events are for example: logging in, adding a product to the shopping cart, adding a product to the catalog (store owner), when emails have been sent, etc...
+
+## Future Features
+---
+### - Reviews
+A review system which gives the user the possibility to write a review about products he has bought and to make it visible to other users.
+
+### - Product Weight
+The possibility of adding products with weight and properly reflecting this information in the shopping cart as the order, also with adjusted prices.
+
+### - Delete Shopping Bag Products
+In the future, products in the shopping cart should also be deleted by pressing a button instead by entering 0.
+
+## Technologies Used
+---
+### Languages Used
+- HTML5
+- CSS3
+- Python
+- Django
+- jQuery
+- JavaScript
+
+### Technologies and Programs Used
+- GitHub was used for version control and planning/user stories of the agile project. 
+- GitPod was used as IDE to write the actual code and push to GitHub.
+- Heroku was used to deploy the application
+- ElephantSQL was used as database
+- Stripe was used as payment service
+- Amazon Web Services was used to host all media an static files

@@ -5,15 +5,15 @@
 <div id="custom-container" class="row">
     <div class=" col-12 col-sm-11 offset-sm-1 col-md-6 offset-md-3 col-xl-4 offset-xl-4">
         <h2>Checkout <i class="fa-solid fa-truck-arrow-right"></i></h2>
+        <h4>Personal Details</h4>
         <form action="{% url 'checkout' %}" method="POST" id="checkout-form">
             {% csrf_token %}
-            <h4>Personal Details</h4>
             <span>
                 Email Adrress *
                 {{ order_form.email_address | as_crispy_field }}
                 Phone Number <br>
                 {{ order_form.phone_number | as_crispy_field }}
-                Delivery Information
+                <h4>Delivery Information</h4>
                 Full Name *
                 {{ order_form.full_name | as_crispy_field }}
                 Address *
