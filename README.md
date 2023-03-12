@@ -11,6 +11,7 @@ Store owners/employees receive a special user account that allows them to add, e
 
 Click [here](https://gfeller-herbs.herokuapp.com/) to live site.
 
+
 ## User Stories
 ---
 
@@ -45,6 +46,7 @@ The following milestones were assignet to categorize: "User Accounts", "Administ
 - As a Customer, I can leave reviews on products I bought, so that other customers can see my opinion about them.
 - As a Customer, I can if available for the product, choose between different weights, so that can order the desired weight of a product.
 
+
 ## Agile Methodology
 ---
 ![Screenshot User Stories](/media/images_readme/screenshot_user_stories.PNG)
@@ -59,6 +61,7 @@ Link to the project with live issues can be found [here](https://github.com/user
 ![Image Wireframe](/media/images_readme/wireframe.jpg)
 
 The web application was designed on a laptop screen size. This wireframe was used.
+
 
 ## Existing Features
 ---
@@ -123,6 +126,7 @@ The newsletter of the site can be subscribed by selecting the appropriate select
 ### - Messages
 For many recurring events, the user is informed about successful or failed actions via a message box that appears at the top right and only disappears when it is closed. Such events are for example: logging in, adding a product to the shopping cart, adding a product to the catalog (store owner), when emails have been sent, etc...
 
+
 ## Future Features
 ---
 ### - Reviews
@@ -133,6 +137,7 @@ The possibility of adding products with weight and properly reflecting this info
 
 ### - Delete Shopping Bag Products
 In the future, products in the shopping cart should also be deleted by pressing a button instead by entering 0.
+
 
 ## Technologies Used
 ---
@@ -151,6 +156,7 @@ In the future, products in the shopping cart should also be deleted by pressing 
 - ElephantSQL was used as database
 - Stripe was used as payment service
 - Amazon Web Services was used to host all media an static files
+
 
 ## Code Validation
 ---
@@ -173,3 +179,122 @@ The warnings that occur there cannot be avoided and do not affect the function o
 All Python files of the project were formatted by [Black Code Formatter](https://black.vercel.app/). (PEP8 Standard)
 
 Max line lenght 80 instead of 79 (PEP8).
+
+
+## Tests
+---
+### Lighthouse
+![Screenshot Lighthouse](/media/images_readme/screenshot_lighthouse.PNG)
+
+
+### Manual Tests
+Currently, only 2 views (ArticleList, home_view )from views.py of the wiki app are tested. 
+These test are located in test.py. The remaining 7 tests for the views will be published in the next deployment cycle.
+
+
+## Bugs
+---
+### Solved
+I fixed a bug that occurred when replacing or editing an article without filling in the title field. 
+This was fixed by form validation.
+
+### Unsolved
+No unsolved bugs.
+
+
+## Deployment
+---
+Steps to deploy on Heroku:
+
+- START A BASIC DJANGO PROJECT
+
+- Use CI Full Template
+
+- Install libraries etc. for basic functionality: pip3 install (“django<4”-(framework), gunicorn-(WSGI, Server to run Django on Heroku), dj_database_url==0.5.0-(for Heroku DB), psycopg2-(DB Adapter for PostgresSQL), dj3-cloudinary-storage-(stores our images and static files)).
+
+- Create requirements.txt: pip3 freeze –local > requirements.txt
+
+- Start django project: django-admin startproject yourProjectName .
+
+- Create django app: python3 manage.py startapp yourAppName
+
+- Add your new App to App list in settings.py: yourProjectName/settings.py > INSTALLED_APPS add “yourAppName”, to list
+
+- Migrate Changes to DB: python3 manage.py migrate (now you can use python3 manage.py runserver to check if everything works) 
+    
+- Create new heroku app
+
+- In Resources tab add Heroku PostgresSQL to project
+
+- In Setting tab > Config Vars copy DATABASE_URL string
+
+- Create env.py: add
+import os
+os.environ[“DATABASE_URL”] = “yourDatabaseUrl”
+os.environ[“SECRET_KEY”] = “randomSecretKey123?” 
+
+
+- Copy SECRET_KEY value & add to Heroku Config Vars
+
+- In settings.py: 
+import os
+import dj_database_url
+if os.path.isfile(“env.py”):
+    import env
+} {
+SECRET_KEY = os.environ.get(“SECRET_KEY”)
+} *Comment out DATABASES variable & add* {
+DATABASES = {
+“default”: dj_database_url.parse(os.environ.get(“DATABASE_URL”))
+}
+
+
+- Migrate again: python3 manage.py migrate
+
+- In Heroku Resources tab, click on Heroku Postgres link: check rows and tables
+
+- Copy Cloudinary API Environment variable
+
+- In env.py: add 
+os.environ[“CLOUDINARY_URL”] = (delete CLODINARY_URL=)“pasteHere” 
+
+
+- In Heroku Config Vars add: CLOUDINARY_URL = (delete CLODINARY_URL=)“pasteHere” 
+
+- In Heroku Config Vars add: DISABLE_COLLECTSTATIC = 1
+
+- In Heroku Config Vars add: PORT= 8000
+
+- In settings.py > # Application definition > INSTALLED_APPS: {
+“cloudinary_storage”,
+“django.contrib.staticfiles”,
+“cloudinary”,
+}
+
+- In settings.py > # Static files: 
+STATICFILES_STORAGE = 'clodinary_storage.storage.StaticHashedCloudinaryStorage'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+MEDIA_URL = '/media/'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+
+- In settings.py underneath BASE_DIR create: TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+
+- In settings.py in the TEMPLATES variable change: 'DIRS': [TEMPLATES_DIR],
+
+- In settings.py in the ALLOWED_HOSTS variable add: [yourHerokuAppName.herokuapp.com', 'localhost']
+
+- Create media, static, templates folders on top level next to manage.py
+
+- Create Procfile on top level & add: web: gunicorn yourDjangoProjectName.wsgi
+
+- Deploy to GitHub: git add . > git commit -m “yourDeploymentMessage” > git push
+
+- In Heroku Deploy Tab click GitHub as Deployment method, connect repo & click Deploy Branch
+
+- Before final deployment: In settings.py set DEBUG = False & create X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+## Credits
+---
+No Credits so far.

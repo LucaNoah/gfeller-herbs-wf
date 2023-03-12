@@ -16,17 +16,6 @@ class ListProductsTestCase(TestCase):
         self.assertTemplateUsed(response, "products/products.html")
 
 
-# class ProductDetailTestCase(TestCase):
-#     def setUp(self):
-#         pass
-
-#     def test_load_view(self):
-#         c = Client()
-#         response = c.get("/products/1/")
-#         self.assertEqual(response.status_code, 200)
-#         self.assertTemplateUsed(response, "products/product_detail.html")
-
-
 class AddProductTestCase(TestCase):
     def setUp(self):
         pass
