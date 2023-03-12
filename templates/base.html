@@ -55,7 +55,7 @@
             <div class="container-fluid" id="navbar-menu">
                 <a class="navbar-brand" href="{% url 'home' %}">Gfeller Herbs</a>
                 <li class="nav-item d-lg-none">
-                    <a id="bag" href="{% url 'shopping_bag' %}">
+                    <a id="bag-sm" href="{% url 'shopping_bag' %}">
                         <i class="fa-solid fa-basket-shopping text-dark"><span
                                 id="nav-bag-count">{{ bag_count }}</span></i>
                         <span class="d-block text-dark pr-2" id="bag-count">{% if bag_items %}<strong>{{ total }}$
@@ -177,7 +177,7 @@
                     </form>
                 </div>
                 <li class="nav-item pt-2 pt-lg-0 d-none d-lg-flex">
-                    <a id="shopping-bag" href="{% url 'shopping_bag' %}">
+                    <a id="bag" href="{% url 'shopping_bag' %}">
                         <i class="fa-solid fa-basket-shopping text-dark"><span
                                 id="nav-bag-count">{{ bag_count }}</span></i>
                         <span class="d-block text-dark pr-2" id="bag-count">{% if bag_items %}<strong>{{ total }}$

@@ -155,7 +155,7 @@ In the future, products in the shopping cart should also be deleted by pressing 
 - Heroku was used to deploy the application
 - ElephantSQL was used as database
 - Stripe was used as payment service
-- Amazon Web Services was used to host all media an static files
+- Amazon Web Services S3 was used to host all media an static files
 
 
 ## Code Validation
@@ -194,12 +194,16 @@ Tests were implied throughout the application. Further and more complex tests, e
 ## Bugs
 ---
 ### Modals
-
 Currently, messages to confirm deleting, editing or adding products are displayed through the browser. The intention was to style this modal through bootstrap. However, the implementation caused problems because the product ID could not be correctly transferred to the modal and thus the wrong product was deleted / edited. Since this confirmation message is only displayed for store owners / employees, this is not considered critical and will be fixed in the next development cycle.
 
 ![Screenshot Modal Bug](/media/images_readme/screenshot_modal.PNG)
 
 ### Weight for Products
+The application has been designed and developed to give a product the option to have a weight that is also passed on to the shopping cart and order. Shortly before the release I noticed that the function is buggy, because the price is not adjusted for different weights. Therefore the HTML code for this function was removed from the project. The model, the view and all other functionality is still available and will be continued. The fix for this bug is planned for the next development cycle.
+
+![Screenshot Weight Bug](/media/images_readme/screenshot_product_weight.PNG)
+
+![Screenshot 2 Weight Bug](/media/images_readme/screenshot_product_weight2.PNG)
 
 
 ## Deployment

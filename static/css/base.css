@@ -72,7 +72,8 @@ h2 {
     font-size: 180%;
 }
 
-#shopping-bag {
+#bag,
+#bag-sm {
     list-style-type: none;
     text-decoration: none;
 }
