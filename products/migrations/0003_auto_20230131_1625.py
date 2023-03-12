@@ -4,19 +4,18 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('products', '0002_auto_20230112_1721'),
+        ("products", "0002_auto_20230112_1721"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='category',
-            options={'verbose_name_plural': 'Categories'},
+            name="category",
+            options={"verbose_name_plural": "Categories"},
         ),
         migrations.AddField(
-            model_name='product',
-            name='has_quantity',
+            model_name="product",
+            name="has_quantity",
             field=models.BooleanField(blank=True, default=False, null=True),
         ),
     ]

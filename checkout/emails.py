@@ -8,15 +8,11 @@ def send_conformation_email(order):
 
     recipient_email = order.email_address
     subject = render_to_string(
-        'checkout/emails/order_confirmation_subject.txt',
-        {'order': order})
-    body = render_to_string(
-        'checkout/emails/order_confirmation_body.txt',
-        {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
-
-    send_mail(
-        subject,
-        body,
-        settings.DEFAULT_FROM_EMAIL,
-        [recipient_email]
+        "checkout/emails/order_confirmation_subject.txt", {"order": order}
     )
+    body = render_to_string(
+        "checkout/emails/order_confirmation_body.txt",
+        {"order": order, "contact_email": settings.DEFAULT_FROM_EMAIL},
+    )
+
+    send_mail(subject, body, settings.DEFAULT_FROM_EMAIL, [recipient_email])

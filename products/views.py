@@ -11,7 +11,8 @@ from .forms import ProductForm
 
 def list_products(request):
     """
-    A view to list either all products, specifically sorted categorized products, or products requested by search query.
+    A view to list either all products, specifically sorted categorized
+    products, or products requested by search query.
     """
 
     products = Product.objects.all()
@@ -21,72 +22,80 @@ def list_products(request):
     direction = None
 
     if request.GET:
-        if 'sortby' in request.GET:
-            sortby = request.GET['sortby']
+        if "sortby" in request.GET:
+            sortby = request.GET["sortby"]
             sortkey = sortby
-            if sortby == 'category':
-                sortby = 'category__name'
-            if 'direction' in request.GET:
-                direction = request.GET['direction']
-                if direction == 'desc':
-                    sortby = f'-{sortby}'
+            if sortby == "category":
+                sortby = "category__name"
+            if "direction" in request.GET:
+                direction = request.GET["direction"]
+                if direction == "desc":
+                    sortby = f"-{sortby}"
             products = products.order_by(sortby)
 
-        if 'category' in request.GET:
-            categories_queried = request.GET['category'].split(',')
+        if "category" in request.GET:
+            categories_queried = request.GET["category"].split(",")
             products = products.filter(category__name__in=categories_queried)
-            categories_queried = Category.objects.filter(name__in=categories_queried)
+            categories_queried = Category.objects.filter(
+                name__in=categories_queried
+            )
 
-        if 'query' in request.GET:
-            search_query = request.GET['query']
+        if "query" in request.GET:
+            search_query = request.GET["query"]
             if not search_query:
                 messages.error(request, "You didn't enter any search criteria!")
-                return redirect(reverse('products'))
-            
-            queries = Q(name__icontains=search_query) | Q(description__icontains=search_query)
+                return redirect(reverse("products"))
+
+            queries = Q(name__icontains=search_query) | Q(
+                description__icontains=search_query
+            )
             products = products.filter(queries)
 
-    sorting_queried = f'{sortkey}_{direction}'
+    sorting_queried = f"{sortkey}_{direction}"
 
     context = {
-        'products': products,
-        'search_term': search_query,
-        'current_categories': categories_queried,
-        'current_sorting': sorting_queried,
+        "products": products,
+        "search_term": search_query,
+        "current_categories": categories_queried,
+        "current_sorting": sorting_queried,
     }
 
-    return render(request, 'products/products.html', context)
+    return render(request, "products/products.html", context)
 
 
 def product_detail(request, product_id):
-    """ A view to display the product's details"""
+    """A view to display the product's details"""
 
     product = get_object_or_404(Product, pk=product_id)
 
     context = {
-        'product': product,
+        "product": product,
     }
-    
-    return render(request, 'products/product_detail.html', context)
+
+    return render(request, "products/product_detail.html", context)
 
 
 @user_passes_test(lambda u: u.is_superuser)
 def add_product(request):
-    """ Add product to the quote """
-    if request.method == 'POST':
+    """Add product to the quote"""
+    if request.method == "POST":
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             product = form.save()
-            messages.success(request, 'Product added successfully!')
-            return redirect(reverse('product_detail', args=[product.id]))
+            messages.success(request, "Product added successfully!")
+            return redirect(reverse("product_detail", args=[product.id]))
         else:
-            messages.error(request, 'Product could not be added, please check that the form is valid!')
-    else:     
+            messages.error(
+                request,
+                "Product could not be added, please check that the"
+                " form is valid!",
+            )
+    else:
         form = ProductForm()
 
-    template = 'products/add_product.html'
+    template = "products/add_product.html"
     context = {
-        'form': form,
+        "form": form,
     }
 
     return render(request, template, context)
@@ -94,23 +103,27 @@ def add_product(request):
 
 @user_passes_test(lambda u: u.is_superuser)
 def edit_product(request, product_id):
-    """ Edit a product that is already in the store """
+    """Edit a product that is already in the store"""
     product = get_object_or_404(Product, pk=product_id)
-    if request.method == 'POST':
+    if request.method == "POST":
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Product edited successfully!')
-            return redirect(reverse('product_detail', args=[product.id]))
+            messages.success(request, "Product edited successfully!")
+            return redirect(reverse("product_detail", args=[product.id]))
         else:
-            messages.error(request, 'Product could not be edited, please check that the form is valid!')
+            messages.error(
+                request,
+                "Product could not be edited, please check that the"
+                " form is valid!",
+            )
     else:
         form = ProductForm(instance=product)
 
-    template = 'products/edit_product.html'
+    template = "products/edit_product.html"
     context = {
-        'form': form,
-        'product': product,
+        "form": form,
+        "product": product,
     }
 
     return render(request, template, context)
@@ -118,9 +131,9 @@ def edit_product(request, product_id):
 
 @user_passes_test(lambda u: u.is_superuser)
 def delete_product(request, product_id):
-    """ Delete a product that is already in the store """
+    """Delete a product that is already in the store"""
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
-    messages.success(request, 'Product deleted successfully!')
-    
-    return redirect(reverse('products'))
+    messages.success(request, "Product deleted successfully!")
+
+    return redirect(reverse("products"))

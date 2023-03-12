@@ -44,13 +44,16 @@ class EditProductTestCase(TestCase):
             name="testproduct",
             description="some product",
             price=123,
-            )
+        )
 
     def test_load_view(self):
         c = Client()
         response = c.get(f"/products/edit/{self.product.id}/")
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(f"/accounts/login/?next=/products/edit/{self.product.id}/", response.url)
+        self.assertEqual(
+            f"/accounts/login/?next=/products/edit/{self.product.id}/",
+            response.url,
+        )
 
 
 class DeleteProductTestCase(TestCase):
@@ -59,14 +62,16 @@ class DeleteProductTestCase(TestCase):
             name="testproduct",
             description="some product",
             price=123,
-            )
+        )
 
     def test_load_view__anonymous_user(self):
         c = Client()
         response = c.get(f"/products/delete/{self.product.id}/")
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(f"/accounts/login/?next=/products/delete/{self.product.id}/", response.url)
-        
+        self.assertEqual(
+            f"/accounts/login/?next=/products/delete/{self.product.id}/",
+            response.url,
+        )
 
     def test_load_view__superuser(self):
         user = models.User.objects.create_superuser("test", password="pass")
@@ -74,7 +79,9 @@ class DeleteProductTestCase(TestCase):
         c.force_login(user)
         response = c.get(f"/products/delete/{self.product.id}/")
         self.assertEqual(response.status_code, 302)
-        self.assertEquals(reverse('products'), response.url)
+        self.assertEquals(reverse("products"), response.url)
 
-        product = products_model.Product.objects.filter(id=self.product.id).first()
+        product = products_model.Product.objects.filter(
+            id=self.product.id
+        ).first()
         self.assertEqual(product, None)

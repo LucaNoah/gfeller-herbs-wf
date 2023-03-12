@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('checkout', '0002_auto_20230216_1411'),
+        ("checkout", "0002_auto_20230216_1411"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='order',
-            name='town_or_city',
-            field=models.CharField(default='', max_length=80),
+            model_name="order",
+            name="town_or_city",
+            field=models.CharField(default="", max_length=80),
         ),
     ]

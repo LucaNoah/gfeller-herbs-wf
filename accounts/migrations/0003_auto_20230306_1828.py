@@ -4,20 +4,19 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('accounts', '0002_useraccount_default_full_name'),
+        ("accounts", "0002_useraccount_default_full_name"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='useraccount',
-            name='has_newsletter_sub',
+            model_name="useraccount",
+            name="has_newsletter_sub",
             field=models.BooleanField(blank=True, default=False, null=True),
         ),
         migrations.AddField(
-            model_name='useraccount',
-            name='newsletter_email_address',
+            model_name="useraccount",
+            name="newsletter_email_address",
             field=models.EmailField(blank=True, max_length=75, null=True),
         ),
     ]

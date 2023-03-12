@@ -151,3 +151,25 @@ In the future, products in the shopping cart should also be deleted by pressing 
 - ElephantSQL was used as database
 - Stripe was used as payment service
 - Amazon Web Services was used to host all media an static files
+
+## Code Validation
+---
+### HTML Validation
+All code of all rendered HTML pages of the project was validated by the [W3C Markup Validation Service](https://validator.w3.org/). 
+
+The errors that occur there cannot be avoided and do not affect the function of the app. They can be considered irrelevant.
+
+### CSS Validation
+All CSS files of the project have been validated by [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/).
+
+No errors raised.
+
+### JavaScript Validation
+All JavaScript files of the project have been validated by [JShint JavaScript Validation Service](https://jshint.com/).
+
+The warnings that occur there cannot be avoided and do not affect the function of the app. They can be considered irrelevant.
+
+### Python Validation
+All Python files of the project were formatted by [Black Code Formatter](https://black.vercel.app/). (PEP8 Standard)
+
+Max line lenght 80 instead of 79 (PEP8).

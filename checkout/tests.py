@@ -10,9 +10,9 @@ class CheckoutViewTestCase(TestCase):
 
     def test_load_view(self):
         c = Client()
-        response = c.get('/checkout/')
+        response = c.get("/checkout/")
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(reverse('products'), response.url)
+        self.assertEqual(reverse("products"), response.url)
 
 
 # class CheckoutSuccessTestCase(TestCase):
