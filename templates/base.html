@@ -75,12 +75,12 @@
                                 aria-label="Search">
                         </div>
                         <button id="search-btn" class="btn btn-outline-dark" type="submit"><i
-                                class="fa-solid fa-magnifying-glass"></i></button>
+                                class="fa-solid fa-magnifying-glass" aria-label="Search Button"></i></button>
                     </form>
                     <ul class="navbar-nav mt-2 mt-lg-0">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                                aria-expanded="false">
+                            <a id="nav-link-1" class="sippi nav-link dropdown-toggle" href="#" role="button"
+                                data-toggle="dropdown" aria-expanded="false">
                                 All Products
                             </a>
                             <ul class="dropdown-menu">
@@ -96,8 +96,8 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                                aria-expanded="false">
+                            <a id="nav-link-2" class="nav-link dropdown-toggle" href="#" role="button"
+                                data-toggle="dropdown" aria-expanded="false">
                                 Teas
                             </a>
                             <ul class="dropdown-menu">
@@ -122,8 +122,8 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                                aria-expanded="false">
+                            <a id="nav-link-3" class="nav-link dropdown-toggle" href="#" role="button"
+                                data-toggle="dropdown" aria-expanded="false">
                                 Oils
                             </a>
                             <ul class="dropdown-menu">
@@ -142,8 +142,8 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                                aria-expanded="false">
+                            <a id="nav-link-4" class="nav-link dropdown-toggle" href="#" role="button"
+                                data-toggle="dropdown" aria-expanded="false">
                                 <i class="fa-solid fa-user"></i> Your Account
                             </a>
                             <ul id="dropdown-menu-bottom" class="dropdown-menu">
@@ -177,7 +177,7 @@
                     </form>
                 </div>
                 <li class="nav-item pt-2 pt-lg-0 d-none d-lg-flex">
-                    <a id="bag" href="{% url 'shopping_bag' %}">
+                    <a id="shopping-bag" href="{% url 'shopping_bag' %}">
                         <i class="fa-solid fa-basket-shopping text-dark"><span
                                 id="nav-bag-count">{{ bag_count }}</span></i>
                         <span class="d-block text-dark pr-2" id="bag-count">{% if bag_items %}<strong>{{ total }}$
