@@ -188,112 +188,18 @@ Max line lenght 80 instead of 79 (PEP8).
 
 
 ### Manual Tests
-Currently, only 2 views (ArticleList, home_view )from views.py of the wiki app are tested. 
-These test are located in test.py. The remaining 7 tests for the views will be published in the next deployment cycle.
+Tests were implied throughout the application. Further and more complex tests, especially in the checkout and bag app, will be implemented in the next development cycle.
 
 
 ## Bugs
 ---
-### Solved
-I fixed a bug that occurred when replacing or editing an article without filling in the title field. 
-This was fixed by form validation.
-
 ### Unsolved
-No unsolved bugs.
+- Modals
 
 
 ## Deployment
 ---
-Steps to deploy on Heroku:
 
-- START A BASIC DJANGO PROJECT
-
-- Use CI Full Template
-
-- Install libraries etc. for basic functionality: pip3 install (“django<4”-(framework), gunicorn-(WSGI, Server to run Django on Heroku), dj_database_url==0.5.0-(for Heroku DB), psycopg2-(DB Adapter for PostgresSQL), dj3-cloudinary-storage-(stores our images and static files)).
-
-- Create requirements.txt: pip3 freeze –local > requirements.txt
-
-- Start django project: django-admin startproject yourProjectName .
-
-- Create django app: python3 manage.py startapp yourAppName
-
-- Add your new App to App list in settings.py: yourProjectName/settings.py > INSTALLED_APPS add “yourAppName”, to list
-
-- Migrate Changes to DB: python3 manage.py migrate (now you can use python3 manage.py runserver to check if everything works) 
-    
-- Create new heroku app
-
-- In Resources tab add Heroku PostgresSQL to project
-
-- In Setting tab > Config Vars copy DATABASE_URL string
-
-- Create env.py: add
-import os
-os.environ[“DATABASE_URL”] = “yourDatabaseUrl”
-os.environ[“SECRET_KEY”] = “randomSecretKey123?” 
-
-
-- Copy SECRET_KEY value & add to Heroku Config Vars
-
-- In settings.py: 
-import os
-import dj_database_url
-if os.path.isfile(“env.py”):
-    import env
-} {
-SECRET_KEY = os.environ.get(“SECRET_KEY”)
-} *Comment out DATABASES variable & add* {
-DATABASES = {
-“default”: dj_database_url.parse(os.environ.get(“DATABASE_URL”))
-}
-
-
-- Migrate again: python3 manage.py migrate
-
-- In Heroku Resources tab, click on Heroku Postgres link: check rows and tables
-
-- Copy Cloudinary API Environment variable
-
-- In env.py: add 
-os.environ[“CLOUDINARY_URL”] = (delete CLODINARY_URL=)“pasteHere” 
-
-
-- In Heroku Config Vars add: CLOUDINARY_URL = (delete CLODINARY_URL=)“pasteHere” 
-
-- In Heroku Config Vars add: DISABLE_COLLECTSTATIC = 1
-
-- In Heroku Config Vars add: PORT= 8000
-
-- In settings.py > # Application definition > INSTALLED_APPS: {
-“cloudinary_storage”,
-“django.contrib.staticfiles”,
-“cloudinary”,
-}
-
-- In settings.py > # Static files: 
-STATICFILES_STORAGE = 'clodinary_storage.storage.StaticHashedCloudinaryStorage'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-MEDIA_URL = '/media/'
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
-
-- In settings.py underneath BASE_DIR create: TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
-
-- In settings.py in the TEMPLATES variable change: 'DIRS': [TEMPLATES_DIR],
-
-- In settings.py in the ALLOWED_HOSTS variable add: [yourHerokuAppName.herokuapp.com', 'localhost']
-
-- Create media, static, templates folders on top level next to manage.py
-
-- Create Procfile on top level & add: web: gunicorn yourDjangoProjectName.wsgi
-
-- Deploy to GitHub: git add . > git commit -m “yourDeploymentMessage” > git push
-
-- In Heroku Deploy Tab click GitHub as Deployment method, connect repo & click Deploy Branch
-
-- Before final deployment: In settings.py set DEBUG = False & create X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 ## Credits
 ---
