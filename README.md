@@ -171,7 +171,7 @@ All CSS files of the project have been validated by [W3C CSS Validation Service]
 No errors raised.
 
 ### JavaScript Validation
-All JavaScript files of the project have been validated by [JShint JavaScript Validation Service](https://jshint.com/).
+All JavaScript files of the project have been validated by [JShint](https://jshint.com/).
 
 The warnings that occur there cannot be avoided and do not affect the function of the app. They can be considered irrelevant.
 
@@ -193,8 +193,13 @@ Tests were implied throughout the application. Further and more complex tests, e
 
 ## Bugs
 ---
-### Unsolved
-- Modals
+### Modals
+
+Currently, messages to confirm deleting, editing or adding products are displayed through the browser. The intention was to style this modal through bootstrap. However, the implementation caused problems because the product ID could not be correctly transferred to the modal and thus the wrong product was deleted / edited. Since this confirmation message is only displayed for store owners / employees, this is not considered critical and will be fixed in the next development cycle.
+
+![Screenshot Modal Bug](/media/images_readme/screenshot_modal.PNG)
+
+### Weight for Products
 
 
 ## Deployment
