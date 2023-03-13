@@ -14,6 +14,9 @@
                 {{ form.content | as_crispy_field }}
             </span>
             <p>Fields with an * are required!</p>
+            <p><strong>Before your review becomes public, it will be approved by an admin! Please only write reviews
+                    about
+                    products that you have actually received.</strong></p>
             <div>
                 <a href="{% url 'products' %}" class="btn btn-outline-dark mt-2">Back to Products</a>
                 <button class="btn btn-warning mt-2 confirmation-add" type="submit">Create & Add</button>
