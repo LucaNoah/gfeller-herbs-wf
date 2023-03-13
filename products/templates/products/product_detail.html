@@ -44,6 +44,21 @@
         <a class="btn btn-warning" href="{% url 'edit_product' product.id %}">Edit</a>
         <a class="btn btn-danger confirmation-delete" href="{% url 'delete_product' product.id %}">Delete</a>
         {% endif %}
+
+        <div>
+
+            {% for review in reviews %}
+            {% if review.product|slugify == product.name|slugify %}
+            {{ review.product }}
+            <br>
+            {{ review.title }}
+            <br>
+            {{ review.author }}
+            {% endif %}
+            {% endfor %}
+
+        </div>
+
     </div>
 </div>
 {% endblock %}

@@ -9,22 +9,22 @@
         <form action="{% url 'checkout' %}" method="POST" id="checkout-form">
             {% csrf_token %}
             <span>
-                Email Adrress *
+                Email Adrress*
                 {{ order_form.email_address | as_crispy_field }}
                 Phone Number <br>
                 {{ order_form.phone_number | as_crispy_field }}
                 <h4>Delivery Information</h4>
-                Full Name *
+                Full Name*
                 {{ order_form.full_name | as_crispy_field }}
                 Address *
                 {{ order_form.delivery_address | as_crispy_field }}
-                Town or City *
+                Town or City*
                 {{ order_form.town_or_city | as_crispy_field }}
                 ZIP Code
                 {{ order_form.zip_code | as_crispy_field }}
                 Sate
                 {{ order_form.state | as_crispy_field }}
-                Country *
+                Country*
                 {{ order_form.country | as_crispy_field }}
             </span>
             <p>Fields with an * are required!</p>

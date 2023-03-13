@@ -199,7 +199,7 @@ Currently, messages to confirm deleting, editing or adding products are displaye
 ![Screenshot Modal Bug](/media/images_readme/screenshot_modal.PNG)
 
 ### Weight for Products
-The application has been designed and developed to give a product the option to have a weight that is also passed on to the shopping cart and order. Shortly before the release I noticed that the function is buggy, because the price is not adjusted for different weights. Therefore the HTML code for this function was removed from the project. The model, the view and all other functionality is still available and will be continued. The fix for this bug is planned for the next development cycle.
+The application has been designed and developed to give a product the option to have a weight that is also passed on to the shopping cart and order. Shortly before the release I noticed that the function is buggy, because the price is not adjusted for different weights. Therefore model field for this function was removed from the products model. The templates, the view and all other functionality is still available and will be continued. The fix for this bug is planned for the next development cycle.
 
 ![Screenshot Weight Bug](/media/images_readme/screenshot_product_weight.PNG)
 

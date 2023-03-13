@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
-from django.contrib.auth.decorators import user_passes_test
+from django.contrib.auth.decorators import user_passes_test, login_required
 from django.db.models import Q
 
-from .models import Product, Category
-from .forms import ProductForm
+from .models import Product, Category, ProductReview
+from .forms import ProductForm, ReviewForm
 
 # Create your views here.
 
@@ -64,12 +64,17 @@ def list_products(request):
 
 
 def product_detail(request, product_id):
-    """A view to display the product's details"""
+    """
+    A view to display the product's details &
+    list all Reviews for related product
+    """
 
     product = get_object_or_404(Product, pk=product_id)
+    reviews = ProductReview.objects.all()
 
     context = {
         "product": product,
+        "reviews": reviews,
     }
 
     return render(request, "products/product_detail.html", context)
@@ -104,6 +109,7 @@ def add_product(request):
 @user_passes_test(lambda u: u.is_superuser)
 def edit_product(request, product_id):
     """Edit a product that is already in the store"""
+
     product = get_object_or_404(Product, pk=product_id)
     if request.method == "POST":
         form = ProductForm(request.POST, request.FILES, instance=product)
@@ -132,8 +138,35 @@ def edit_product(request, product_id):
 @user_passes_test(lambda u: u.is_superuser)
 def delete_product(request, product_id):
     """Delete a product that is already in the store"""
+
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
     messages.success(request, "Product deleted successfully!")
 
     return redirect(reverse("products"))
+
+
+@login_required
+def add_review(request):
+    """Add review to product"""
+    if request.method == "POST":
+        form = ReviewForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Review added successfully!")
+            return redirect(reverse("products"))
+        else:
+            messages.error(
+                request,
+                "Review could not be added, please check that the"
+                " form is valid!",
+            )
+    else:
+        form = ReviewForm(initial={'author': request.user})
+
+    template = "products/add_review.html"
+    context = {
+        "form": form,
+    }
+
+    return render(request, template, context)
