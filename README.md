@@ -212,4 +212,4 @@ The application has been designed and developed to give a product the option to 
 
 ## Credits
 ---
-No Credits so far.
+No Credits so far...
