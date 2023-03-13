@@ -24,6 +24,13 @@
                 {% csrf_token %}
                 <input class="sm-select-item form-control" type="number" name="quantity" value="1" min="1" max="50"
                     data-product_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                {% if product.has_weight %}
+                <select class="detail-item selectpicker form-control mr-1" name="product_weight" id="id_product_weigth">
+                    <option value="100g">100g</option>
+                    <option value="250g">250g</option>
+                    <option value="500g">500g</option>
+                </select>
+                {% endif %}
             </div>
             <div>
                 <a class="btn btn-outline-dark mb-1" href="{% url 'products' %}">

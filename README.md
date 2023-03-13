@@ -155,7 +155,7 @@ In the future, products in the shopping cart should also be deleted by pressing 
 - Heroku was used to deploy the application
 - ElephantSQL was used as database
 - Stripe was used as payment service
-- Amazon Web Services S3 was used to host all media an static files
+- Amazon Web Services S3, IAM was used to host all media an static files
 
 
 ## Code Validation
