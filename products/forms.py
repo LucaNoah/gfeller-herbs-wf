@@ -16,8 +16,6 @@ class ProductForm(forms.ModelForm):
             "Old Price (Only needed if on sale is set)"
         )
         self.fields["on_sale"].label = "On Sale"
-        self.fields["new_arrived"].label = "New Arrived"
-        self.fields["image_url"].label = "Image URL"
 
 
 class ReviewForm(forms.ModelForm):
