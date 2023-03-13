@@ -126,12 +126,12 @@ The newsletter of the site can be subscribed by selecting the appropriate select
 ### - Messages
 For many recurring events, the user is informed about successful or failed actions via a message box that appears at the top right and only disappears when it is closed. Such events are for example: logging in, adding a product to the shopping cart, adding a product to the catalog (store owner), when emails have been sent, etc...
 
+### - Reviews
+Via the Your Account tab of the navbar, the user has the possibility to write reviews about products, provided that a user account has been created. These are displayed under the respective product in the detail view. Before the review is publicly visible, it must be approved by an admin via the admin panel.
+
 
 ## Future Features
 ---
-### - Reviews
-A review system which gives the user the possibility to write a review about products he has bought and to make it visible to other users.
-
 ### - Product Weight
 The possibility of adding products with weight and properly reflecting this information in the shopping cart as the order, also with adjusted prices.
 
@@ -194,7 +194,7 @@ Tests were implied throughout the application. Further and more complex tests, e
 ## Bugs
 ---
 ### Modals
-Currently, messages to confirm deleting, editing or adding products are displayed through the browser. The intention was to style this modal through bootstrap. However, the implementation caused problems because the product ID could not be correctly transferred to the modal and thus the wrong product was deleted / edited. Since this confirmation message is only displayed for store owners / employees, this is not considered critical and will be fixed in the next development cycle.
+Currently, messages to confirm deleting, editing or adding products are displayed through the browser. The intention was to style this modal through bootstrap. However, the implementation caused problems because the product ID could not be correctly transferred to the modal and thus the wrong product was deleted / edited. This is not considered as critical and will be fixed in the next development cycle.
 
 ![Screenshot Modal Bug](/media/images_readme/screenshot_modal.PNG)
 
