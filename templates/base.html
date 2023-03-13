@@ -148,31 +148,22 @@
                             </a>
                             <ul id="dropdown-menu-bottom" class="dropdown-menu">
                                 {% if request.user.is_authenticated %}
-                                <li>
-                                    <a class="dropdown-item" href="{% url 'account' %}">Your Account</a>
-                                </li>
                                 {% if request.user.is_superuser %}
-                                <li>
-                                    <a class="dropdown-item" href="{% url 'add_product' %}">Add a Product</a>
+                                <li><a class="dropdown-item" href="{% url 'add_product' %}">Add a Product</a>
                                 </li>
                                 {% endif %}
-                                <li>
-                                    <a class="dropdown-item" href="{% url 'add_review' %}">Add a Product Review</a>
-                                </li>
+                                <li><a class="dropdown-item" href="{% url 'account' %}">Your Account</a>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
+                                <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
                                 <li>
-                                    <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
-                                </li>
-                                {% else %}
+                                    {% else %}
+                                <li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a>
                                 <li>
-                                    <a class="dropdown-item" href="{% url 'account_signup' %}">Register</a>
-                                </li>
+                                <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a>
+                                    {% endif %}
                                 <li>
-                                    <a class="dropdown-item" href="{% url 'account_login' %}">Login</a>
-                                </li>
-                                {% endif %}
                             </ul>
                         </li>
                     </ul>

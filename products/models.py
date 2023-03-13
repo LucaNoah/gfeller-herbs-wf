@@ -22,6 +22,10 @@ class Product(models.Model):
     )
     name = models.CharField(max_length=250)
     description = models.TextField()
+    on_sale = models.BooleanField(default=False)
+    old_price = models.DecimalField(
+        max_digits=6, decimal_places=2, default=0, null=True, blank=True
+    )
     price = models.DecimalField(max_digits=6, decimal_places=2)
     sku = models.CharField(max_length=13, null=True, blank=True)
     image_url = models.URLField(null=True, blank=True, max_length=1024)

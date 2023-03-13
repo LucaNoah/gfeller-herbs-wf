@@ -43,7 +43,9 @@ def list_products(request):
         if "query" in request.GET:
             search_query = request.GET["query"]
             if not search_query:
-                messages.error(request, "You didn't enter any search criteria!")
+                messages.error(
+                    request, "You didn't enter any search criteria!"
+                )
                 return redirect(reverse("products"))
 
             queries = Q(name__icontains=search_query) | Q(
@@ -162,7 +164,7 @@ def add_review(request):
                 " form is valid!",
             )
     else:
-        form = ReviewForm(initial={'author': request.user})
+        form = ReviewForm(initial={"author": request.user})
 
     template = "products/add_review.html"
     context = {

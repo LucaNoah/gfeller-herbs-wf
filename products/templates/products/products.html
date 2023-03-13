@@ -52,7 +52,14 @@
                             {{ product.name }}
                         </h3>
                     </a>
-                    <p class="card-text">{{ product.price }}$</p>
+                    <p class="card-text">
+                        {% if product.on_sale %}
+                        <s>{{ product.old_price }}$</s> <span><strong>{{ product.price }}$ <i
+                                    class="fa-solid fa-cash-register"></i></strong></span>
+                        {% else %}
+                        {{ product.price }}$
+                        {% endif %}
+                    </p>
                     {% if request.user.is_superuser %}
                     <a class="btn btn-warning" href="{% url 'edit_product' product.id %}">Edit</a>
                     <a class="btn btn-danger confirmation-delete"

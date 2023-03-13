@@ -26,7 +26,7 @@ class UserAccount(models.Model):
         blank_label="Select...", null=True, blank=True
     )
     has_newsletter_sub = models.BooleanField(
-        default=False, null=True, blank=True
+        default=False
     )
     newsletter_email_address = models.EmailField(
         max_length=75, null=True, blank=True

@@ -18,7 +18,14 @@
             </a>
         </p>
         {% endif %}
-        <p>{{ product.price }}$</p>
+        <p>
+            {% if product.on_sale %}
+            <s>{{ product.old_price }}$</s> <span><strong>{{ product.price }}$ <i
+                        class="fa-solid fa-cash-register"></i></strong></span>
+            {% else %}
+            {{ product.price }}$
+            {% endif %}
+        </p>
         <form action="{% url 'add_item' product.id %}" method="POST">
             <div class="form-group d-inline-flex">
                 {% csrf_token %}
