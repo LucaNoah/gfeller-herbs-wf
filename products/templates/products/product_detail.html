@@ -14,14 +14,14 @@
         {% if product.category %}
         <p class="small">
             <a id="category-link" href="{% url 'products' %}?category={{ product.category.name }}">
-                {{ product.category.display_name }} <i class="fa-solid fa-tag"></i>
+                {{ product.category.display_name }} <i class="fa-solid fa-bookmark"></i>
             </a>
         </p>
         {% endif %}
         <p>
             {% if product.on_sale %}
             <s>{{ product.old_price }}$</s> <span><strong>{{ product.price }}$ <i
-                        class="fa-solid fa-cash-register"></i></strong></span>
+                        class="fa-solid fa-tag"></i></strong></span>
             {% else %}
             {{ product.price }}$
             {% endif %}

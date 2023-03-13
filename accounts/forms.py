@@ -14,4 +14,4 @@ class UserAccountForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         for field in self.fields:
             self.fields[field].label = False
-            self.fields["has_newsletter_sub"].label = "Chek to subscribe"
+            self.fields["has_newsletter_sub"].label = "Chek to Subscribe"

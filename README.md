@@ -100,7 +100,7 @@ If the user has already registered, he can navigate via the navbar to the login 
 If the user is logged in, he can navigate to the logout page via the navbar.
 
 ### Add, Edit & Delete Products
-If the user is logged in as superuser (store owner/employee), he has the possibility to delete or edit the product in the views of the product catalog and the product details. To add a new product, the user can navigate to the corresponding entry under the tab Your Account > Add Product. Creating and editing is done via form input.
+If the user is logged in as superuser (store owner/employee), he has the possibility to delete or edit the product in the views of the product catalog and the product details. To add a new product, the user can navigate to the corresponding entry under the tab Your Account > Add Product. Creating and editing is done via form input an has user conformation.
 
 ### - Products Catalog
 Through the button on the homepage or the navigation tab and the search input, it is possible for the user to view the product catalog. The selected products are displayed with their picture, name and price. By clicking on the picture or the name, the user can view the details of the product. Above the products, there is a selection box for sorting. If one of the super categories is displayed, the user can use the buttons below the sorting option to display the various categories.
@@ -121,13 +121,13 @@ Once the order and payment have been successfully processed, an order success pa
 If the user is logged in, he can go to his personal user profile via the navigation bar. There is a list of all orders placed, an entry for the default delivery address which is automatically inserted during checkout and a selection option to subscribe to the newsletter of the store.
 
 ### - Newsletter
-The newsletter of the site can be subscribed by selecting the appropriate selection box in the Your Account area. The user only has to provide his email address and update his information. There are no real newsletter mails sent at the moment!
+The newsletter of the site can be subscribed by checking the checkbox in the Your Account area. The user only has to provide his email address and update his information. There are no real newsletter mails sent at the moment!
 
 ### - Messages
 For many recurring events, the user is informed about successful or failed actions via a message box that appears at the top right and only disappears when it is closed. Such events are for example: logging in, adding a product to the shopping cart, adding a product to the catalog (store owner), when emails have been sent, etc...
 
 ### - Reviews
-Via the Your Account tab of the navbar, the user has the possibility to write reviews about products, provided that a user account has been created. These are displayed under the respective product in the detail view. Before the review is publicly visible, it must be approved by an admin via the admin panel.
+Via the Your Account tab of the navbar, the user has the possibility to write reviews about products, provided that a user account has been created. These are displayed under the respective product in the detail view. Before the review is publicly visible, it must be approved by an admin via the admin panel. Creation has user conformation.
 
 
 ## Future Features
@@ -136,7 +136,7 @@ Via the Your Account tab of the navbar, the user has the possibility to write re
 The possibility of adding products with weight and properly reflecting this information in the shopping cart as the order, also with adjusted prices.
 
 ### - Delete Shopping Bag Products
-In the future, products in the shopping cart should also be deleted by pressing a button instead by entering 0.
+In the future, products in the shopping cart should also be deleted by pressing a button (like the edit button) instead by entering 0.
 
 
 ## Technologies Used
@@ -193,11 +193,6 @@ Tests were implied throughout the application. Further and more complex tests, e
 
 ## Bugs
 ---
-### Modals
-Currently, messages to confirm deleting, editing or adding products are displayed through the browser. The intention was to style this modal through bootstrap. However, the implementation caused problems because the product ID could not be correctly transferred to the modal and thus the wrong product was deleted / edited. This is not considered as critical and will be fixed in the next development cycle.
-
-![Screenshot Modal Bug](/media/images_readme/screenshot_modal.PNG)
-
 ### Weight for Products
 The application has been designed and developed to give a product the option to have a weight that is also passed on to the shopping cart and order. Shortly before the release I noticed that the function is buggy, because the price is not adjusted for different weights. Therefore model field for this function was removed from the products model. The templates, the view and all other functionality is still available and will be continued. The fix for this bug is planned for the next development cycle.
 
