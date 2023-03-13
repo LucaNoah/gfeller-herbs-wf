@@ -17,18 +17,35 @@
             <p><br>Fields with an * are required!</p>
             <div>
                 <a href="{% url 'products' %}" class="btn btn-outline-dark mt-2">Back to Products</a>
-                <button class="btn btn-warning mt-2 confirmation-edit" type="submit">Save & Edit</button>
+                <button class="btn btn-warning mt-2 confirmation-edit" type="button" data-toggle="modal"
+                    data-target="#edit-modal">Save & Edit</button>
+                <!-- Conformation Modal -->
+                <div class="modal fade" id="edit-modal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Edit this Product?</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>
+                                    Are you sure you want to edit this product?
+                                </p>
+                                <p>
+                                    If this window does not close, go back and correct the form!
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Go Back</button>
+                                <button class="btn btn-warning" type="submit">Save & Edit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </form>
     </div>
 </div>
-{% endblock %}
-
-{% block postloadjs %}
-{{ block.super }}
-<script type="text/javascript">
-    $('.confirmation-edit').on('click', function () {
-        return confirm('Are you sure you want to edit this product?');
-    });
-</script>
 {% endblock %}

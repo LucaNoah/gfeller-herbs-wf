@@ -60,11 +60,6 @@
                         {{ product.price }}$
                         {% endif %}
                     </p>
-                    {% if request.user.is_superuser %}
-                    <a class="btn btn-warning" href="{% url 'edit_product' product.id %}">Edit</a>
-                    <a class="btn btn-danger confirmation-delete"
-                        href="{% url 'delete_product' product.id %}">Delete</a>
-                    {% endif %}
                 </div>
             </div>
             {% endfor %}
