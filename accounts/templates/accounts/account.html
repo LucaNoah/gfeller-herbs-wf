@@ -5,6 +5,19 @@
 <div id="custom-container" class="row">
     <div class=" col-12 col-sm-11 offset-sm-1 col-md-6 offset-md-3 col-xl-4 offset-xl-4">
         <h2>Hello, {{ user.username }}!</h2>
+        {% if request.user.is_superuser %}
+        <p>
+            Check new customer feedbacks? <br>
+            <a class="mt-2 btn btn-outline-dark" href="{% url 'list_feedbacks' %}">Customer Feedbacks</a>
+        </p>
+        {% else %}
+        <p>
+            Do you have any suggestions for improvement or ideas? <br>
+            <a href="{% url 'add_feedback' %}" class="mt-2 btn btn-outline-dark">Let Us Know <i
+                    class="fa-regular fa-message"></i></a>
+        </p>
+        {% endif %}
+        <br>
         <h4>Your Transacted Orders</h4>
         <div class="table-responsive">
             <table class="table text-dark">

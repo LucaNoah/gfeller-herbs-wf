@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div id="custom-container" class="row">
+    <div class=" col-12 col-sm-11 offset-sm-1 col-md-6 offset-md-3 col-xl-4 offset-xl-4">
+        <h2>Customer Feedbacks</h2>
+        {% if feedbacks %}
+        {% for feedback in feedbacks %}
+        <div class="card mb-2">
+            <div class="card-body">
+                <h4 class="card-title">{{ feedback.reason }}</h4>
+                <p class="card-text">{{ feedback.content }}</p>
+                <p><small>Written by: {{ feedback.user }} Sent at: {{ feedback.date }}</small></p>
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <p>No customer feedback has been received yet!</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

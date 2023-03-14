@@ -1,5 +1,5 @@
 from django import forms
-from .models import UserAccount
+from .models import UserAccount, CustomerFeedback
 
 
 class UserAccountForm(forms.ModelForm):
@@ -15,3 +15,9 @@ class UserAccountForm(forms.ModelForm):
         for field in self.fields:
             self.fields[field].label = False
             self.fields["has_newsletter_sub"].label = "Chek to Subscribe"
+
+
+class FeedbackForm(forms.ModelForm):
+    class Meta:
+        model = CustomerFeedback
+        fields = "__all__"

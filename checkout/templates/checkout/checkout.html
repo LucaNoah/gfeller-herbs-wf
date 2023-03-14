@@ -36,10 +36,10 @@
                     Your card will be charged with <strong>{{ grand_total|floatformat:2 }}$</strong>
                 </p>
                 <a class="btn btn-outline-dark mb-1" href="{% url 'shopping_bag' %}">
-                    <span>Adjust Shopping Bag</span>
+                    <i class="fa-solid fa-arrow-left"></i> Adjust Shopping Bag
                 </a>
                 <button class="btn btn-dark mb-1" id="submit-button">
-                    <span>Complete Order <i class="fa-regular fa-credit-card"></i></span>
+                    Complete Order <i class="fa-regular fa-credit-card"></i>
                 </button>
             </div>
         </form>

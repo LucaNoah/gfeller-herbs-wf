@@ -7,11 +7,6 @@ from django_countries.fields import CountryField
 
 
 class UserAccount(models.Model):
-    """
-    User account model to store delivery information, order history &
-    newsletter information
-    """
-
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     default_full_name = models.CharField(max_length=50, null=True, blank=True)
     default_delivery_address = models.CharField(
@@ -44,3 +39,28 @@ def create_or_update_user_account(sender, instance, created, **kwargs):
     if created:
         UserAccount.objects.create(user=instance)
     instance.useraccount.save()
+
+
+class CustomerFeedback(models.Model):
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="customer_feedback"
+    )
+    PRODUCTS = "Products/Product Range"
+    CHECKOUT = "Order/Payment"
+    STORE = "Store Structure/Design"
+    GENERAL = "General Improvement Suggestions"
+    OTHER = "Other"
+    REASON_CHOICES = [
+        (PRODUCTS, "Products/Product Range"),
+        (CHECKOUT, "Order/Payment"),
+        (STORE, "Store Structure/Design"),
+        (GENERAL, "General Improvement Suggestions"),
+        (OTHER, "Other"),
+    ]
+    reason = models.CharField(
+        max_length=31,
+        choices=REASON_CHOICES,
+        default=GENERAL,
+    )
+    content = models.TextField(blank=False, null=False)
+    date = models.DateTimeField(auto_now_add=True)

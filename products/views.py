@@ -14,7 +14,6 @@ def list_products(request):
     A view to list either all products, specifically sorted categorized
     products, or products requested by search query.
     """
-
     products = Product.objects.all()
     search_query = None
     categories_queried = None
@@ -70,7 +69,6 @@ def product_detail(request, product_id):
     A view to display the product's details &
     list all Reviews for related product
     """
-
     product = get_object_or_404(Product, pk=product_id)
     reviews = ProductReview.objects.all()
 
@@ -111,7 +109,6 @@ def add_product(request):
 @user_passes_test(lambda u: u.is_superuser)
 def edit_product(request, product_id):
     """Edit a product that is already in the store"""
-
     product = get_object_or_404(Product, pk=product_id)
     if request.method == "POST":
         form = ProductForm(request.POST, request.FILES, instance=product)
@@ -140,7 +137,6 @@ def edit_product(request, product_id):
 @user_passes_test(lambda u: u.is_superuser)
 def delete_product(request, product_id):
     """Delete a product that is already in the store"""
-
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
     messages.success(request, "Product deleted successfully!")
