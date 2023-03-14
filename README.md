@@ -21,6 +21,7 @@ Click [here](https://gfeller-herbs.herokuapp.com/) to live site.
 GitHub Issues/Projects were used to document user stories.
 The following labels were assigned for prioritization purposes: "Must Have", "Should Have", "Could Have" and "Won't Have".
 The following milestones were assigned to categorize: "User Accounts", "Administration & Management", "Purchase & Payment", "Search & Sort", "View & Navigation"
+I had to recreate all user stories and issues on GitHub because after cloning my own project they were only assigned to the GitHub project and not to the GitHub repository anymore.
 
 ### Fulfilled User Stories
 
