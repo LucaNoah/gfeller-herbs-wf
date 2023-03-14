@@ -57,7 +57,7 @@
                 <li class="nav-item d-lg-none">
                     <a id="bag-sm" href="{% url 'shopping_bag' %}">
                         <i class="fa-solid fa-basket-shopping text-dark"><span
-                                id="nav-bag-count">{{ bag_count }}</span></i>
+                                class="nav-bag-count">{{ bag_count }}</span></i>
                         <span class="d-block text-dark pr-2" id="bag-count">{% if bag_items %}<strong>{{ total }}$
                             </strong>{% endif %}</span>
                     </a>
@@ -193,7 +193,7 @@
                 <li class="nav-item pt-2 pt-lg-0 d-none d-lg-flex">
                     <a id="bag" href="{% url 'shopping_bag' %}">
                         <i class="fa-solid fa-basket-shopping text-dark"><span
-                                id="nav-bag-count">{{ bag_count }}</span></i>
+                                class="nav-bag-count">{{ bag_count }}</span></i>
                         <span class="d-block text-dark pr-2" id="bag-count">{% if bag_items %}<strong>{{ total }}$
                             </strong>{% endif %}</span>
                     </a>

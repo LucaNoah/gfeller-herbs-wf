@@ -78,8 +78,9 @@ h2 {
     text-decoration: none;
 }
 
-#nav-bag-count {
-    font-size: 1rem;
+.nav-bag-count {
+    font-size: 1.2rem;
+    margin-left: 0.2rem;
 }
 
 .social-icon {
