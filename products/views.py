@@ -6,8 +6,6 @@ from django.db.models import Q
 from .models import Product, Category, ProductReview
 from .forms import ProductForm, ReviewForm
 
-# Create your views here.
-
 
 def list_products(request):
     """

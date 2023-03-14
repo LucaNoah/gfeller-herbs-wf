@@ -128,7 +128,6 @@ def checkout_success(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
 
     if request.user.is_authenticated:
-        # Attach user account to order
         account = UserAccount.objects.get(user=request.user)
         order.user_account = account
         order.save()
