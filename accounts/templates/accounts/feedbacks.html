@@ -9,7 +9,7 @@
         {% for feedback in feedbacks %}
         <div class="card mb-2">
             <div class="card-body">
-                <h4 class="card-title">{{ feedback.reason }}</h4>
+                <h4 class="card-title">Reason Category:{{ feedback.reason }}</h4>
                 <p class="card-text">{{ feedback.content }}</p>
                 <p><small>Written by: {{ feedback.user }} Sent at: {{ feedback.date }}</small></p>
             </div>
