@@ -34,7 +34,9 @@ class Order(models.Model):
     email_address = models.EmailField(max_length=75, null=False, blank=False)
     phone_number = models.CharField(max_length=30, null=True, blank=True)
     full_name = models.CharField(max_length=50, null=False, blank=False)
-    delivery_address = models.CharField(max_length=100, null=False, blank=False)
+    delivery_address = models.CharField(
+        max_length=100, null=False, blank=False
+    )
     town_or_city = models.CharField(
         max_length=80, null=False, blank=False, default=""
     )

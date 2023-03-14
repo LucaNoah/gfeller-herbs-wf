@@ -12,9 +12,9 @@ class ProductForm(forms.ModelForm):
         categories = Category.objects.all()
         display_names = [(c.id, c.get_display_name()) for c in categories]
         self.fields["category"].choices = display_names
-        self.fields["old_price"].label = (
-            "Old Price (Only needed if on sale is set)"
-        )
+        self.fields[
+            "old_price"
+        ].label = "Old Price (Only needed if on sale is set)"
         self.fields["on_sale"].label = "On Sale"
 
 

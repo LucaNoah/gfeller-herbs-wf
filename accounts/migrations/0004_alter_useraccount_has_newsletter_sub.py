@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('accounts', '0003_auto_20230306_1828'),
+        ("accounts", "0003_auto_20230306_1828"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='useraccount',
-            name='has_newsletter_sub',
+            model_name="useraccount",
+            name="has_newsletter_sub",
             field=models.BooleanField(default=False),
         ),
     ]

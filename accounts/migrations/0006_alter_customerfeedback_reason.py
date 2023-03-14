@@ -4,15 +4,27 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('accounts', '0005_customerfeedback'),
+        ("accounts", "0005_customerfeedback"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='customerfeedback',
-            name='reason',
-            field=models.CharField(choices=[('Products/Product Range', 'Products/Product Range'), ('Order/Payment', 'Order/Payment'), ('Store Structure/Design', 'Store Structure/Design'), ('General Improvement Suggestions', 'General Improvement Suggestions'), ('Other', 'Other')], default='General Improvement Suggestions', max_length=31),
+            model_name="customerfeedback",
+            name="reason",
+            field=models.CharField(
+                choices=[
+                    ("Products/Product Range", "Products/Product Range"),
+                    ("Order/Payment", "Order/Payment"),
+                    ("Store Structure/Design", "Store Structure/Design"),
+                    (
+                        "General Improvement Suggestions",
+                        "General Improvement Suggestions",
+                    ),
+                    ("Other", "Other"),
+                ],
+                default="General Improvement Suggestions",
+                max_length=31,
+            ),
         ),
     ]

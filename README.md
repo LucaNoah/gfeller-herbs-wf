@@ -221,8 +221,6 @@ The warnings that occur there cannot be avoided and do not affect the function o
 
 All Python files of the project were formatted by [Black Code Formatter](https://black.vercel.app/). (PEP8 Standard)
 
-Max line length 80 instead of 79 (PEP8).
-
 ## Tests
 
 ---

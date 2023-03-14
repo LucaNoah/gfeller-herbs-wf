@@ -9,97 +9,152 @@
 
 <url>
   <loc>https://gfeller-herbs.herokuapp.com/</loc>
-  <lastmod>2023-03-10T19:44:10+00:00</lastmod>
+  <lastmod>2023-03-14T21:32:05+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://gfeller-herbs.herokuapp.com/bag/</loc>
-  <lastmod>2023-03-10T19:44:10+00:00</lastmod>
+  <lastmod>2023-03-14T21:32:05+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://gfeller-herbs.herokuapp.com/products/</loc>
-  <lastmod>2023-03-10T19:44:10+00:00</lastmod>
+  <lastmod>2023-03-14T21:32:05+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://gfeller-herbs.herokuapp.com/products/?sortby=price&amp;direction=asc</loc>
-  <lastmod>2023-03-10T19:44:10+00:00</lastmod>
+  <lastmod>2023-03-14T21:32:05+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://gfeller-herbs.herokuapp.com/products/?sortby=category&amp;direction=asc</loc>
-  <lastmod>2023-03-10T19:44:10+00:00</lastmod>
+  <lastmod>2023-03-14T21:32:05+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://gfeller-herbs.herokuapp.com/products/?category=black_tea,fruit_tea,green_tea,herbal_tea</loc>
-  <lastmod>2023-03-10T19:44:10+00:00</lastmod>
+  <lastmod>2023-03-14T21:32:05+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://gfeller-herbs.herokuapp.com/products/?category=green_tea</loc>
-  <lastmod>2023-03-10T19:44:10+00:00</lastmod>
+  <lastmod>2023-03-14T21:32:05+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://gfeller-herbs.herokuapp.com/products/?category=black_tea</loc>
-  <lastmod>2023-03-10T19:44:10+00:00</lastmod>
+  <lastmod>2023-03-14T21:32:05+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://gfeller-herbs.herokuapp.com/products/?category=fruit_tea</loc>
-  <lastmod>2023-03-10T19:44:10+00:00</lastmod>
+  <lastmod>2023-03-14T21:32:05+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://gfeller-herbs.herokuapp.com/products/?category=herbal_tea</loc>
-  <lastmod>2023-03-10T19:44:10+00:00</lastmod>
+  <lastmod>2023-03-14T21:32:05+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://gfeller-herbs.herokuapp.com/products/?category=oil_x,oil_y,oil_z</loc>
-  <lastmod>2023-03-10T19:44:10+00:00</lastmod>
+  <loc>https://gfeller-herbs.herokuapp.com/products/?category=cooking_oil,body_oil</loc>
+  <lastmod>2023-03-14T21:32:05+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://gfeller-herbs.herokuapp.com/products/?category=oil_x</loc>
-  <lastmod>2023-03-10T19:44:10+00:00</lastmod>
+  <loc>https://gfeller-herbs.herokuapp.com/products/?category=cooking_oil</loc>
+  <lastmod>2023-03-14T21:32:05+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://gfeller-herbs.herokuapp.com/products/?category=oil_y</loc>
-  <lastmod>2023-03-10T19:44:10+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://gfeller-herbs.herokuapp.com/products/?category=oil_z</loc>
-  <lastmod>2023-03-10T19:44:10+00:00</lastmod>
+  <loc>https://gfeller-herbs.herokuapp.com/products/?category=body_oil</loc>
+  <lastmod>2023-03-14T21:32:05+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://gfeller-herbs.herokuapp.com/accounts/signup/</loc>
-  <lastmod>2023-03-10T19:44:10+00:00</lastmod>
+  <lastmod>2023-03-14T21:32:05+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://gfeller-herbs.herokuapp.com/accounts/login/</loc>
-  <lastmod>2023-03-10T19:44:10+00:00</lastmod>
+  <lastmod>2023-03-14T21:32:05+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://gfeller-herbs.herokuapp.com/products/1/</loc>
-  <lastmod>2023-03-10T19:44:10+00:00</lastmod>
+  <loc>https://gfeller-herbs.herokuapp.com/products/3/</loc>
+  <lastmod>2023-03-14T21:32:05+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://gfeller-herbs.herokuapp.com/products/2/</loc>
-  <lastmod>2023-03-10T19:44:10+00:00</lastmod>
+  <loc>https://gfeller-herbs.herokuapp.com/products/6/</loc>
+  <lastmod>2023-03-14T21:32:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gfeller-herbs.herokuapp.com/products/4/</loc>
+  <lastmod>2023-03-14T21:32:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gfeller-herbs.herokuapp.com/products/5/</loc>
+  <lastmod>2023-03-14T21:32:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gfeller-herbs.herokuapp.com/products/7/</loc>
+  <lastmod>2023-03-14T21:32:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gfeller-herbs.herokuapp.com/products/8/</loc>
+  <lastmod>2023-03-14T21:32:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gfeller-herbs.herokuapp.com/products/9/</loc>
+  <lastmod>2023-03-14T21:32:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gfeller-herbs.herokuapp.com/products/10/</loc>
+  <lastmod>2023-03-14T21:32:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gfeller-herbs.herokuapp.com/products/11/</loc>
+  <lastmod>2023-03-14T21:32:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gfeller-herbs.herokuapp.com/products/12/</loc>
+  <lastmod>2023-03-14T21:32:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gfeller-herbs.herokuapp.com/products/13/</loc>
+  <lastmod>2023-03-14T21:32:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gfeller-herbs.herokuapp.com/products/14/</loc>
+  <lastmod>2023-03-14T21:32:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gfeller-herbs.herokuapp.com/products/15/</loc>
+  <lastmod>2023-03-14T21:32:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gfeller-herbs.herokuapp.com/products/16/</loc>
+  <lastmod>2023-03-14T21:32:05+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://gfeller-herbs.herokuapp.com/accounts/password/reset/</loc>
-  <lastmod>2023-03-10T19:44:10+00:00</lastmod>
+  <lastmod>2023-03-14T21:32:05+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 

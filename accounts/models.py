@@ -20,9 +20,7 @@ class UserAccount(models.Model):
     default_country = CountryField(
         blank_label="Select...", null=True, blank=True
     )
-    has_newsletter_sub = models.BooleanField(
-        default=False
-    )
+    has_newsletter_sub = models.BooleanField(default=False)
     newsletter_email_address = models.EmailField(
         max_length=75, null=True, blank=True
     )

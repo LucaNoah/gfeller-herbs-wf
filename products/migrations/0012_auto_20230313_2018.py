@@ -4,19 +4,24 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('products', '0011_alter_product_old_price'),
+        ("products", "0011_alter_product_old_price"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='product',
-            name='new_arrived',
+            model_name="product",
+            name="new_arrived",
         ),
         migrations.AlterField(
-            model_name='product',
-            name='old_price',
-            field=models.DecimalField(blank=True, decimal_places=2, default=0, max_digits=6, null=True),
+            model_name="product",
+            name="old_price",
+            field=models.DecimalField(
+                blank=True,
+                decimal_places=2,
+                default=0,
+                max_digits=6,
+                null=True,
+            ),
         ),
     ]
