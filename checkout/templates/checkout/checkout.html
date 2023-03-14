@@ -35,12 +35,38 @@
                 <p>
                     Your card will be charged with <strong>{{ grand_total|floatformat:2 }}$</strong>
                 </p>
-                <a class="btn btn-outline-dark mb-1" href="{% url 'shopping_bag' %}">
+                <a class="btn btn-outline-dark" href="{% url 'shopping_bag' %}">
                     <i class="fa-solid fa-arrow-left"></i> Adjust Shopping Bag
                 </a>
-                <button class="btn btn-dark mb-1" id="submit-button">
-                    Complete Order <i class="fa-regular fa-credit-card"></i>
-                </button>
+                <button class="btn btn-dark" type="button" data-toggle="modal" data-target="#checkout-modal">Secure
+                    Checkout <i class="fa-solid fa-lock"></i></button>
+                <!-- Conformation Modal -->
+                <div class="modal fade" id="checkout-modal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Proceed with Checkout?</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>
+                                    Your card will be charged with <strong>{{ grand_total|floatformat:2 }}$</strong>
+                                </p>
+                                <p>
+                                    If this window does not close, go back and correct the form!
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Go Back</button>
+                                <button class="btn btn-dark mb-1" id="submit-button">
+                                    Complete Order <i class="fa-regular fa-credit-card"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </form>
     </div>
