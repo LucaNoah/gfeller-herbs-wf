@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import user_passes_test, login_required
 
-from .models import UserAccount, CustomerFeedback
-from .forms import UserAccountForm, FeedbackForm
+from .models import UserAccount, CustomerFeedback, Return
+from .forms import UserAccountForm, FeedbackForm, ReturnForm
 
 
 @login_required
@@ -29,6 +29,7 @@ def account(request):
     return render(request, template, context)
 
 
+@user_passes_test(lambda u: u.is_superuser)
 def list_feedbacks(request):
     """A view to display the customer feedbacks"""
     feedbacks = CustomerFeedback.objects.all()
@@ -59,6 +60,32 @@ def add_feedback(request):
         form = FeedbackForm(initial={"user": request.user})
 
     template = "accounts/add_feedback.html"
+    context = {
+        "form": form,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def add_return(request):
+    """View to register return by customer"""
+    if request.method == "POST":
+        form = ReturnForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Return registration sent successfully!")
+            return redirect(reverse("account"))
+        else:
+            messages.error(
+                request,
+                "Return registration could not be send, please check that the"
+                " form is valid!",
+            )
+    else:
+        form = ReturnForm(initial={"user": request.user})
+
+    template = "accounts/add_return.html"
     context = {
         "form": form,
     }

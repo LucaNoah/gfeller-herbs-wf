@@ -1,5 +1,5 @@
 from django import forms
-from .models import UserAccount, CustomerFeedback
+from .models import UserAccount, CustomerFeedback, Return
 
 
 class UserAccountForm(forms.ModelForm):
@@ -20,4 +20,10 @@ class UserAccountForm(forms.ModelForm):
 class FeedbackForm(forms.ModelForm):
     class Meta:
         model = CustomerFeedback
+        fields = "__all__"
+
+
+class ReturnForm(forms.ModelForm):
+    class Meta:
+        model = Return
         fields = "__all__"

@@ -62,3 +62,44 @@ class CustomerFeedback(models.Model):
     )
     content = models.TextField(blank=False, null=False)
     date = models.DateTimeField(auto_now_add=True)
+
+
+class Return(models.Model):
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="goods_return"
+    )
+    order = models.CharField(max_length=80, blank=False, null=False)
+    products = models.CharField(max_length=80, blank=False, null=False)
+    date = models.DateTimeField(auto_now_add=True)
+    DAMAGED = "The goods are damaged"
+    INCORRECT = "The wrong goods were delivered"
+    DONT_LIKE = "You do not like the goods (anymore)"
+    OTHER = "Other"
+    REASON_CHOICES = [
+        (DAMAGED, "The goods are damaged"),
+        (INCORRECT, "The wrong goods were delivered"),
+        (DONT_LIKE, "You do not like the goods (anymore)"),
+        (OTHER, "Other"),
+    ]
+    reason = models.CharField(
+        max_length=35,
+        choices=REASON_CHOICES,
+        default=DAMAGED,
+    )
+    PAYBACK = "Get your money back"
+    RESEND1 = "The wrong goods were delivered"
+    RESEND2 = "Send me the same product (in case of damaged product)"
+    OTHER = "Other"
+    ACTION_CHOICES = [
+        (PAYBACK, "Get your money back"),
+        (RESEND1, "Send me another product (add in comment)"),
+        (RESEND2, "Send me the same product (in case of damaged product)"),
+        (OTHER, "Other"),
+    ]
+    action = models.CharField(
+        max_length=53,
+        choices=ACTION_CHOICES,
+        default=PAYBACK,
+    )
+    comment = models.TextField(blank=True, null=True)
+    

@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div id="custom-container" class="row">
+    <div class=" col-12 col-sm-11 offset-sm-1 col-md-6 offset-md-3 col-xl-4 offset-xl-4">
+        <h2>Create Personal Feedback</h2>
+        <form method="POST" action="{% url 'add_return' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <span>
+                {{ form.user.as_hidden }}
+                {{ form.order | as_crispy_field }}
+                {{ form.products | as_crispy_field }}
+                {{ form.action | as_crispy_field }}
+                {{ form.reason | as_crispy_field }}
+                {{ form.comment | as_crispy_field }}
+            </span>
+            <p>Fields with an * are required!</p>
+            <div>
+                <a href="{% url 'account' %}" class="btn btn-outline-dark mt-2">Back to Account</a>
+                <button class="btn btn-dark mt-2" type="button" data-toggle="modal"
+                    data-target="#add-feedback-modal">Register & Send</button>
+                <!-- Conformation Modal -->
+                <div class="modal fade" id="add-feedback-modal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Register Return?</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>
+                                    Are you sure you want to register your return?
+                                </p>
+                                <p>
+                                    If this window does not close, go back and correct the form!
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Go Back</button>
+                                <button class="btn btn-dark" type="submit">Register & Send</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
