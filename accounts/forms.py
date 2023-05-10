@@ -27,3 +27,16 @@ class ReturnForm(forms.ModelForm):
     class Meta:
         model = Return
         fields = "__all__"
+
+    def __init__(self, *args, **kwargs):
+        """
+        Add placeholders to some fields
+        """
+        super().__init__(*args, **kwargs)
+        for field in self.fields:
+            self.fields["order"].widget.attrs["placeholder"] = (
+                "32 digit" " order number"
+            )
+            self.fields["products"].widget.attrs[
+                "placeholder"
+            ] = "Product1 x 3, Product2 x 1, ..."

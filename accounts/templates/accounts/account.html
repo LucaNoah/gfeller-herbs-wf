@@ -10,6 +10,10 @@
             Check new customer feedbacks? <br>
             <a class="mt-2 btn btn-outline-dark" href="{% url 'list_feedbacks' %}">Customer Feedbacks</a>
         </p>
+        <p>
+            Check new incoming returns? <br>
+            <a class="mt-2 btn btn-outline-dark" href="{% url 'list_returns' %}">Incoming Returns</a>
+        </p>
         {% else %}
         <p>
             Do you have any suggestions for improvement or ideas? <br>
@@ -53,6 +57,11 @@
                 </tbody>
             </table>
         </div>
+        <h4>You want to return goods you have already received?</h4>
+        <p>
+            <a class="btn btn-outline-dark" href="{% url 'add_return' %}">Register Return <i
+                    class="fa-solid fa-truck-fast"></i></a>
+        </p>
         <br>
         <h4>Standard Delivery Information</h4>
         <form action="{% url 'account' %}" method="POST">

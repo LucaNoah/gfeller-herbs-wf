@@ -4,7 +4,43 @@
 {% block content %}
 <div id="custom-container" class="row">
     <div class=" col-12 col-sm-11 offset-sm-1 col-md-6 offset-md-3 col-xl-4 offset-xl-4">
-        <h2>Create Personal Feedback</h2>
+        <h2>Return <i class="fa-solid fa-truck-fast"></i></h2>
+        <h4>Your Transacted Orders</h4>
+        <div class="table-responsive">
+            <table class="table text-dark">
+                <thead>
+                    <tr>
+                        <th>Order Number</th>
+                        <th>Items</th>
+                        <th>Date</th>
+                        <th>Total Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                    <tr>
+                        <td>{{ order.order_number }}</td>
+                        <td>
+                            <ul>
+                                {% for item in order.orderlineitems.all %}
+                                <li>
+                                    {{ item.product.name }}
+                                    {% if item.product.has_weight %}
+                                    {{ item.product_weight }}
+                                    {% endif %}
+                                    x {{ item.quantity }}
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                        <td>{{ order.date }}</td>
+                        <td>{{ order.grand_total }}$</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <h4>Register Return</h4>
         <form method="POST" action="{% url 'add_return' %}" enctype="multipart/form-data">
             {% csrf_token %}
             <span>

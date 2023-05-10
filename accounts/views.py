@@ -32,7 +32,7 @@ def account(request):
 @user_passes_test(lambda u: u.is_superuser)
 def list_feedbacks(request):
     """A view to display the customer feedbacks"""
-    feedbacks = CustomerFeedback.objects.all()
+    feedbacks = CustomerFeedback.objects.all().order_by("-date")
 
     context = {
         "feedbacks": feedbacks,
@@ -53,8 +53,7 @@ def add_feedback(request):
         else:
             messages.error(
                 request,
-                "Feedback could not be send, please check that the"
-                " form is valid!",
+                "Feedback could not be send, please check that the" " form is valid!",
             )
     else:
         form = FeedbackForm(initial={"user": request.user})
@@ -84,10 +83,25 @@ def add_return(request):
             )
     else:
         form = ReturnForm(initial={"user": request.user})
+    account = get_object_or_404(UserAccount, user=request.user)
+    orders = account.orders.all()
 
     template = "accounts/add_return.html"
     context = {
         "form": form,
+        "orders": orders,
     }
 
     return render(request, template, context)
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def list_returns(request):
+    """A view to display the incoming returns"""
+    returns = Return.objects.all().order_by("-date")
+
+    context = {
+        "returns": returns,
+    }
+
+    return render(request, "accounts/returns.html", context)

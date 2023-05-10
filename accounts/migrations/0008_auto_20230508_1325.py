@@ -6,39 +6,73 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('accounts', '0007_return'),
+        ("accounts", "0007_return"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='return',
-            name='action',
-            field=models.CharField(choices=[('Get your money back', 'Get your money back'), ('Send me another product (add in comment)', 'Send me another product (add in comment)'), ('Send me the same product (in case of damaged product)', 'Send me the same product (in case of damaged product)'), ('Other', 'Other')], default='Get your money back', max_length=53),
+            model_name="return",
+            name="action",
+            field=models.CharField(
+                choices=[
+                    ("Get your money back", "Get your money back"),
+                    (
+                        "Send me another product (add in comment)",
+                        "Send me another product (add in comment)",
+                    ),
+                    (
+                        "Send me the same product (in case of damaged product)",
+                        "Send me the same product (in case of damaged product)",
+                    ),
+                    ("Other", "Other"),
+                ],
+                default="Get your money back",
+                max_length=53,
+            ),
         ),
         migrations.AddField(
-            model_name='return',
-            name='order',
+            model_name="return",
+            name="order",
             field=models.CharField(default=1, max_length=80),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='return',
-            name='products',
+            model_name="return",
+            name="products",
             field=models.CharField(default=1, max_length=80),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='return',
-            name='reason',
-            field=models.CharField(choices=[('The goods are damaged', 'The goods are damaged'), ('The wrong goods were delivered', 'The wrong goods were delivered'), ('You do not like the goods (anymore)', 'You do not like the goods (anymore)'), ('Other', 'Other')], default='The goods are damaged', max_length=38),
+            model_name="return",
+            name="reason",
+            field=models.CharField(
+                choices=[
+                    ("The goods are damaged", "The goods are damaged"),
+                    (
+                        "The wrong goods were delivered",
+                        "The wrong goods were delivered",
+                    ),
+                    (
+                        "You do not like the goods (anymore)",
+                        "You do not like the goods (anymore)",
+                    ),
+                    ("Other", "Other"),
+                ],
+                default="The goods are damaged",
+                max_length=38,
+            ),
         ),
         migrations.AddField(
-            model_name='return',
-            name='user',
-            field=models.ForeignKey(default=1, on_delete=django.db.models.deletion.CASCADE, related_name='goods_return', to='auth.user'),
+            model_name="return",
+            name="user",
+            field=models.ForeignKey(
+                default=1,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="goods_return",
+                to="auth.user",
+            ),
             preserve_default=False,
         ),
     ]

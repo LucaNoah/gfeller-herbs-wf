@@ -5,21 +5,37 @@ import django.utils.timezone
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('accounts', '0010_return_reason'),
+        ("accounts", "0010_return_reason"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='return',
-            name='date',
-            field=models.DateTimeField(auto_now_add=True, default=django.utils.timezone.now),
+            model_name="return",
+            name="date",
+            field=models.DateTimeField(
+                auto_now_add=True, default=django.utils.timezone.now
+            ),
             preserve_default=False,
         ),
         migrations.AlterField(
-            model_name='return',
-            name='reason',
-            field=models.CharField(choices=[('The goods are damaged', 'The goods are damaged'), ('The wrong goods were delivered', 'The wrong goods were delivered'), ('You do not like the goods (anymore)', 'You do not like the goods (anymore)'), ('Other', 'Other')], default='The goods are damaged', max_length=35),
+            model_name="return",
+            name="reason",
+            field=models.CharField(
+                choices=[
+                    ("The goods are damaged", "The goods are damaged"),
+                    (
+                        "The wrong goods were delivered",
+                        "The wrong goods were delivered",
+                    ),
+                    (
+                        "You do not like the goods (anymore)",
+                        "You do not like the goods (anymore)",
+                    ),
+                    ("Other", "Other"),
+                ],
+                default="The goods are damaged",
+                max_length=35,
+            ),
         ),
     ]

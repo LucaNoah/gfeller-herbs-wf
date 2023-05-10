@@ -4,15 +4,27 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('accounts', '0009_auto_20230508_1330'),
+        ("accounts", "0009_auto_20230508_1330"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='return',
-            name='reason',
-            field=models.CharField(choices=[('Products/Product Range', 'Products/Product Range'), ('Order/Payment', 'Order/Payment'), ('Store Structure/Design', 'Store Structure/Design'), ('General Improvement Suggestions', 'General Improvement Suggestions'), ('Other', 'Other')], default='General Improvement Suggestions', max_length=31),
+            model_name="return",
+            name="reason",
+            field=models.CharField(
+                choices=[
+                    ("Products/Product Range", "Products/Product Range"),
+                    ("Order/Payment", "Order/Payment"),
+                    ("Store Structure/Design", "Store Structure/Design"),
+                    (
+                        "General Improvement Suggestions",
+                        "General Improvement Suggestions",
+                    ),
+                    ("Other", "Other"),
+                ],
+                default="General Improvement Suggestions",
+                max_length=31,
+            ),
         ),
     ]

@@ -4,17 +4,24 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('accounts', '0006_alter_customerfeedback_reason'),
+        ("accounts", "0006_alter_customerfeedback_reason"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Return',
+            name="Return",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('comment', models.TextField(blank=True, null=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("comment", models.TextField(blank=True, null=True)),
             ],
         ),
     ]

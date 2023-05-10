@@ -9,21 +9,13 @@ from django_countries.fields import CountryField
 class UserAccount(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     default_full_name = models.CharField(max_length=50, null=True, blank=True)
-    default_delivery_address = models.CharField(
-        max_length=100, null=True, blank=True
-    )
-    default_town_or_city = models.CharField(
-        max_length=80, null=True, blank=True
-    )
+    default_delivery_address = models.CharField(max_length=100, null=True, blank=True)
+    default_town_or_city = models.CharField(max_length=80, null=True, blank=True)
     default_zip_code = models.CharField(max_length=20, null=True, blank=True)
     default_state = models.CharField(max_length=100, null=True, blank=True)
-    default_country = CountryField(
-        blank_label="Select...", null=True, blank=True
-    )
+    default_country = CountryField(blank_label="Select...", null=True, blank=True)
     has_newsletter_sub = models.BooleanField(default=False)
-    newsletter_email_address = models.EmailField(
-        max_length=75, null=True, blank=True
-    )
+    newsletter_email_address = models.EmailField(max_length=75, null=True, blank=True)
 
     def __str__(self):
         return self.user.username
@@ -102,4 +94,3 @@ class Return(models.Model):
         default=PAYBACK,
     )
     comment = models.TextField(blank=True, null=True)
-    
