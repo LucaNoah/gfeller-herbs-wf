@@ -162,6 +162,10 @@ Via the Your Account tab of the navbar, the user has the possibility to write re
 
 If the customer navigates to the Your Account page via the Your Account tab of the navigation bar, he will see "Do you have any suggestions for improvement or ideas?" & a button under the welcome message. This leads to a form that sends a customer feedback. The form asks the customer for a categorized reason and a text message. If the user is logged in as a superuser (store owner/employee), he will see a button below the welcome message that leads to a list of all customer feedbacks.
 
+### - Register & List Returns
+
+Via the account view under register return, users can register goods that are to be returned. On the return page, you can see the orders you have placed and you can select the corresponding order, products, reason and the action to be taken via input fields. After a confirmation request, the return shipment will be registered. As a superuser (store owner/employee), you can view the registered returns via the account view under incoming returns.
+
 ## Future Features
 
 ---
