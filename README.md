@@ -4,15 +4,41 @@
 
 Gfeller Herbs is an online store where natural products are sold.
 
-The application underlies a B2C(Business-to-Consumer) business model.
-
-The purpose of the application is to offer customers the possibility to inform themselves about the offered products and to buy and order them.
+The purpose of the application is to offer customers the possibility to inform themselves about the offered products and to order and buy them.
 
 Customers can search for products or sort and categorize them using the fields in the navigation bar. If the customer wants to buy a product, a number of them can be placed in the shopping cart, then can be paid by credit card through a secure checkout procedure. The customer will be informed about orders placed by email and can view them on the website if a user account has been created before. If a user account is created, a standard delivery address can also be stored and a newsletter can be subscribed to.
 
 Store owners/employees receive a special user account that allows them to add, edit and delete products directly from the website. Categories must be added via the admin panel and re-linked in the navigation bar.
 
 Click [here](https://gfeller-herbs.herokuapp.com/) to live site.
+
+## Business Model
+
+---
+
+### - Application Type
+
+Gfeller Herbs is an e-commerce application where users can order and pay for products online.
+
+The application underlies a B2C(Business-to-Consumer) business model.
+
+Deliverables (what is being sold) of the application are physical products and we use single payment for transactions, so the transaction is finished after a single payment is made.
+
+### - Necessary Features & Database Structure
+
+The following features and database tables are documented for demonstration purposes to show how the application can work. The actual implied features and database tables may change during development and may differ in the final product.
+
+The features that are necessary for the application are:
+- As store owner, add, edit & delete products to the product catalog
+- View, sort & search products
+- Add a certain number of products to the shopping cart with a cost overview
+- Edit the shopping cart
+- Secure ordering and payment of products
+- Be informed about successful or failed actions
+
+The following tables are provided for the database and are required:
+
+![Screenshot Responsiveness](/media/images_readme/database_table.jpeg)
 
 ## User Stories
 
