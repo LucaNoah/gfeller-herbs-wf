@@ -54,14 +54,16 @@
         <nav class="navbar navbar-expand-lg navbar-light px-0">
             <div class="container-fluid" id="navbar-menu">
                 <a class="navbar-brand" href="{% url 'home' %}">Gfeller Herbs</a>
-                <li class="nav-item d-lg-none">
-                    <a id="bag-sm" href="{% url 'shopping_bag' %}">
-                        <i class="fa-solid fa-basket-shopping text-dark"><span
-                                class="nav-bag-count">{{ bag_count }}</span></i>
-                        <span class="d-block text-dark pr-2" id="bag-count">{% if bag_items %}<strong>{{ total }}$
-                            </strong>{% endif %}</span>
-                    </a>
-                </li>
+                <ul id="bag-container-small" class="mt-2 nav-item d-lg-none">
+                    <li>
+                        <a id="bag-sm" href="{% url 'shopping_bag' %}">
+                            <i class="fa-solid fa-basket-shopping text-dark"><span
+                                    class="nav-bag-count">{{ bag_count }}</span></i>
+                            <span class="d-block text-dark pr-2">{% if bag_items %}<strong>{{ total }}$
+                                </strong>{% endif %}</span>
+                        </a>
+                    </li>
+                </ul>
                 <button class="navbar-toggler mr-2" type="button" data-toggle="collapse"
                     data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -69,8 +71,8 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <form method="GET" action="{% url 'products' %}" class="d-flex d-lg-none mx-auto pt-2"
-                        id="search-form">
-                        <div id="search-input">
+                        class="search-form">
+                        <div class="search-input">
                             <input class="form-control" type="text" name="query" placeholder="Search Store"
                                 aria-label="Search">
                         </div>
@@ -181,8 +183,9 @@
                             </ul>
                         </li>
                     </ul>
-                    <form method="GET" action="{% url 'products' %}" class="mx-auto d-none d-lg-flex" id="search-form">
-                        <div id="search-input">
+                    <form method="GET" action="{% url 'products' %}" class="mx-auto d-none d-lg-flex"
+                        class="search-form">
+                        <div class="search-input">
                             <input class="form-control" type="text" name="query" placeholder="Search Store"
                                 aria-label="Search">
                         </div>
@@ -190,14 +193,16 @@
                                 class="fa-solid fa-magnifying-glass"></i></button>
                     </form>
                 </div>
-                <li class="nav-item pt-2 pt-lg-0 d-none d-lg-flex">
-                    <a id="bag" href="{% url 'shopping_bag' %}">
-                        <i class="fa-solid fa-basket-shopping text-dark"><span
-                                class="nav-bag-count">{{ bag_count }}</span></i>
-                        <span class="d-block text-dark pr-2" id="bag-count">{% if bag_items %}<strong>{{ total }}$
-                            </strong>{% endif %}</span>
-                    </a>
-                </li>
+                <ul class="mt-3 nav-item pt-2 pt-lg-0 d-none d-lg-flex">
+                    <li>
+                        <a id="bag" href="{% url 'shopping_bag' %}">
+                            <i class="fa-solid fa-basket-shopping text-dark"><span
+                                    class="nav-bag-count">{{ bag_count }}</span></i>
+                            <span class="d-block text-dark pr-2">{% if bag_items %}<strong>{{ total }}$
+                                </strong>{% endif %}</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </nav>
     </header>

@@ -32,7 +32,6 @@ h2 {
 .navbar {
     height: 5rem;
     background-color: #94ffc4;
-    padding-left: 0;
 }
 
 #navbar-menu {
@@ -43,6 +42,7 @@ h2 {
 .navbar-brand {
     font-family: 'Pacifico', cursive;
     font-size: 177%;
+    margin-right: 0;
 }
 
 #nav-link-1,
@@ -56,11 +56,11 @@ h2 {
     list-style-type: none;
 }
 
-#search-form {
+.search-form {
     padding-right: 27%;
 }
 
-#search-input {
+.search-input {
     width: 25rem;
 }
 
@@ -179,7 +179,7 @@ h2 {
 
 /* Navbar */
 @media screen and (max-width: 1200px) {
-    #search-input {
+    .search-input {
         width: 15rem;
     }
 }
@@ -192,6 +192,10 @@ h2 {
     #dropdown-menu-bottom {
         margin-bottom: 1rem;
     }
+
+    .navbar-brand {
+        padding-bottom: 1rem;
+    }
 }
 
 @media screen and (max-width: 576px) {
@@ -201,5 +205,9 @@ h2 {
 
     .navbar-brand {
         font-size: 150%;
+    }
+
+    #bag-container-small {
+        font-size: 80%;
     }
 }
