@@ -70,8 +70,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                    <form method="GET" action="{% url 'products' %}" class="d-flex d-lg-none mx-auto pt-2"
-                        class="search-form">
+                    <form method="GET" action="{% url 'products' %}" class="search-form d-flex d-lg-none mx-auto pt-2">
                         <div class="search-input">
                             <input class="form-control" type="text" name="query" placeholder="Search Store"
                                 aria-label="Search">
@@ -183,8 +182,7 @@
                             </ul>
                         </li>
                     </ul>
-                    <form method="GET" action="{% url 'products' %}" class="mx-auto d-none d-lg-flex"
-                        class="search-form">
+                    <form method="GET" action="{% url 'products' %}" class="search-form mx-auto d-none d-lg-flex">
                         <div class="search-input">
                             <input class="form-control" type="text" name="query" placeholder="Search Store"
                                 aria-label="Search">
