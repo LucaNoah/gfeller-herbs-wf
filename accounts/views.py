@@ -53,7 +53,8 @@ def add_feedback(request):
         else:
             messages.error(
                 request,
-                "Feedback could not be send, please check that the" " form is valid!",
+                "Feedback could not be send, please check that the"
+                " form is valid!",
             )
     else:
         form = FeedbackForm(initial={"user": request.user})
