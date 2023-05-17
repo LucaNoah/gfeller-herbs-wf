@@ -74,3 +74,16 @@ class DeleteProductTestCase(TestCase):
             id=self.product.id
         ).first()
         self.assertEqual(product, None)
+
+
+class AddReviewViewTestCase(TestCase):
+    def setUp(self):
+        pass
+
+    def test_load_view(self):
+        c = Client()
+        response = c.get("/products/add-review/")
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(
+            "/accounts/login/?next=/products/add-review/", response.url
+        )
