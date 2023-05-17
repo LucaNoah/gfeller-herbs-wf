@@ -69,8 +69,8 @@ class Return(models.Model):
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="goods_return"
     )
-    order = models.CharField(max_length=80, blank=False, null=False)
-    products = models.CharField(max_length=80, blank=False, null=False)
+    order = models.CharField(max_length=32, blank=False, null=False)
+    products = models.CharField(max_length=150, blank=False, null=False)
     date = models.DateTimeField(auto_now_add=True)
     DAMAGED = "The goods are damaged"
     INCORRECT = "The wrong goods were delivered"
