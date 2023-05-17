@@ -268,7 +268,7 @@ Automatic tests were created and implemented in the application. Further and mor
 
 ### - Manual Tests
 
-Below is a list of manually run tests for the application:
+Below is a list of manually run tests for the first development cycle application:
 
 ![Manual Tests](/media/images_readme/manual_tests.PNG)
 
