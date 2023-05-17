@@ -38,7 +38,7 @@ The features that are necessary for the application are:
 
 The following tables are provided for the database and are required:
 
-![Screenshot Responsiveness](/media/images_readme/database_table.jpeg)
+![Database Table](/media/images_readme/database_table.jpeg)
 
 ## User Stories
 
@@ -232,9 +232,9 @@ In the future, products in the shopping cart should also be deleted by pressing 
 
 ### - HTML Validation
 
-All code of all rendered HTML pages of the project was validated by the [W3C Markup Validation Service](https://validator.w3.org/).
+All code of all rendered HTML pages of the project was validated by the [W3C Markup Validation Service](https://validator.w3.org/nu/?doc=https%3A%2F%2Fgfeller-herbs.herokuapp.com).
 
-The errors that occur there cannot be avoided and do not affect the function of the app. They can be considered irrelevant.
+No errors raised. The warnings that occur there do not affect the function of the app. They can be considered irrelevant.
 
 ### - CSS Validation
 
@@ -246,23 +246,31 @@ No errors raised.
 
 All JavaScript files of the project have been validated by [JShint](https://jshint.com/).
 
-The warnings that occur there cannot be avoided and do not affect the function of the app. They can be considered irrelevant.
+No errors raised. The warnings that occur there cannot be avoided and do not affect the function of the app. They can be considered irrelevant.
 
 ### - Python Validation
 
 All Python files of the project were formatted by [Black Code Formatter](https://black.vercel.app/). (PEP8 Standard)
 
+### - Lighthouse check from Chrome's dev tools
+
+![Screenshot Lighthouse](/media/images_readme/screenshot_lighthouse.PNG)
+
 ## Tests
 
 ---
 
-### Lighthouse
+### - Automated Tests
 
-![Screenshot Lighthouse](/media/images_readme/screenshot_lighthouse.PNG)
+Automatic tests were created and implemented in the application. Further and more complex tests, especially in the checkout and bag app, will be implemented in the next development cycle.
 
-### Manual Tests
+![Automated Tests](/media/images_readme/automated_tests.PNG)
 
-Tests were implied throughout the application. Further and more complex tests, especially in the checkout and bag app, will be implemented in the next development cycle.
+### - Manual Tests
+
+Below is a list of manually run tests for the application:
+
+![Manual Tests](/media/images_readme/manual_tests.PNG)
 
 ## Bugs
 
